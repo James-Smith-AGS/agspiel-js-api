@@ -1,5 +1,6 @@
 # AG-Spiel JavaScript API-Wrapper
 
+![npm](https://img.shields.io/npm/v/agspiel-js-api)
 ![mastertesting](https://github.com/James-Smith-AGS/agspiel-js-api/workflows/mastertesting/badge.svg?branch=master&event=push)
 ![developtesting](https://github.com/James-Smith-AGS/agspiel-js-api/workflows/developtesting/badge.svg?branch=develop&event=push)
 
