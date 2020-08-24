@@ -58,6 +58,10 @@
 
     <section class="readme usertext">
         <article><h1>AG-Spiel JavaScript API-Wrapper</h1>
+<p><img src="https://img.shields.io/npm/v/agspiel-js-api" alt="version">
+<img src="https://img.shields.io/npm/l/agspiel-js-api" alt="licence">
+<img src="https://github.com/James-Smith-AGS/agspiel-js-api/workflows/mastertesting/badge.svg?branch=master&amp;event=push" alt="master">
+<img src="https://github.com/James-Smith-AGS/agspiel-js-api/workflows/developtesting/badge.svg?branch=develop&amp;event=push" alt="develop"></p>
 <p><strong>Bitte beachtet bei der Nutzung folgendes:</strong>
 <code>§5 Das Benutzen und von Programmen/Bots, die einen Spielvorteil ermöglichen, Funktionen bieten die sich mit Premiumfeatures überschneiden oder hohe Serverbelastungen erzeugen (z.B. Parsen der Seite mit mehr als einem Aufruf pro Sekunde), ist verboten. Die Bewerbung/Verbreitung von Browserplugins oder anderer clientseitiger Software zur Erweiterung/Veränderung der Webseite ist verboten.</code>
 <strong>Außerdem: Der volle Funktionsumfang dieser API kann nur mit einem Premiumaccount im AG-Spiel gewährleistet werden!</strong></p>
@@ -85,13 +89,13 @@
 <li><a href="https://nodejs.org/en/download/">NodeJS</a> installieren</li>
 <li>Projekt-Ordner erstellen</li>
 <li>Im Terminal des gerade erstellten Ordners NPM initialisieren <code>npm init -y</code></li>
-<li>Dieses Paket installieren <code>npm install --save agspiel-js-api</code></li>
+<li>Dieses Paket installieren <code>npm install agspiel-js-api</code></li>
 <li>.js-Datei anlegen und das Paket importieren <code>const agspiel = require('agspiel')</code></li>
 <li>Mit dem eigenen <code>ag-spiel</code>-Cookie authentifizieren und die API nutzen</li>
 </ul>
-<pre class="prettyprint source lang-js"><code>const agspiel = require('agspiel');
+<pre class="prettyprint source lang-js"><code>const agspiel = require(&quot;agspiel-js-api&quot;);
 
-const api = new ags.Api(&quot;&lt;Dein-AG-Spiel-Cookie>&quot;);
+const api = new agspiel.Api(&quot;&lt;Dein-AG-Spiel-Cookie>&quot;);
 
 api.ag(140037).then((ag) => {
     console.log(ag);
@@ -100,6 +104,29 @@ api.ag(140037).then((ag) => {
 <h2>Cookie auslesen</h2>
 <p>Die Cookies könnt ihr, solange ihr beim AG-Spiel eingeloggt seid, über euren Browser erfahren (Bei Firefox STRG+Umschalt+Q und eine beliebige Anfrage anklicken. Danach seht ihr rechts die Cookies).
 Indem ihr die &quot;Klasse&quot; initialisiert <code>new ags.Api(agspiel-cookie)</code> (siehe Beispiel oben) könnt ihr euch also &quot;einloggen&quot; und die API im vollen Umfang nutzen.</p>
+<p>Alternativ könnt ihr auch folgende Funktion nutzen und den aktuellen Wert des Cookies automatisiert auslesen:</p>
+<pre class="prettyprint source lang-js"><code>const agspiel = require(&quot;agspiel-js-api&quot;);
+
+agspiel.get_cookie(&quot;&lt;deine E-Mail>&quot;, &quot;&lt;dein Passwort>&quot;).then((cookie) => {
+    console.log(cookie);
+});
+
+// Output:
+[
+  {
+    name: 'ag-spiel',
+    value: '&lt;cookieString>',
+    domain: 'www.ag-spiel.de',
+    path: '/',
+    expires: 1598894886.473004,
+    size: 48,
+    httpOnly: true,
+    secure: true,
+    session: false
+  }
+]
+</code></pre>
+<p><strong>Diese Funktion wird jedoch nicht auf allen Geräten unterstützt!</strong></p>
 <h2>Beispiele</h2>
 <ul>
 <li>AG</li>
@@ -111,7 +138,7 @@ Indem ihr die &quot;Klasse&quot; initialisiert <code>new ags.Api(agspiel-cookie)
 // Output:
   _wkn: 140037,
   _name: 'Smith AG',
-  _gruendung: '2015-09-24 17:43:39',
+  _gruendung: 2015-09-24T15:43:39.000Z,
   _aktienzahl: 3943847,
   _in_liquidation: false,
   _kurs: 1455.72,
@@ -136,7 +163,7 @@ Indem ihr die &quot;Klasse&quot; initialisiert <code>new ags.Api(agspiel-cookie)
   _ceo: Ceo {
     _name: 'James-Smith',
     _index: 792,
-    _reg_datum: '2015-09-24 17:40:59',
+    _reg_datum: 2015-09-24T15:40:59.000Z,
     _isGesperrt: false,
     _isUserproject: false,
     _premium: 2
@@ -149,13 +176,29 @@ Indem ihr die &quot;Klasse&quot; initialisiert <code>new ags.Api(agspiel-cookie)
     Anleihe {
       _betrag: 100000000,
       _zins: 0.2,
-      _auszahlung_datum: '2020-08-24 12:58:19',
+      _auszahlung_datum: 2020-08-25T08:18:31.000Z,
       _laufzeit: 5
     },
     ...
   ],
-  _kredite: [],
-  _zertifikate: [],
+  _kredite: [
+    Kredit {
+      _betrag: 35000000,
+      _zins: 0.273,
+      _rueckzahlung_datum: 2020-08-28T12:16:29.000Z,
+      _laufzeit: 5
+    },
+    ...
+  ],
+  _zertifikate: [
+    Zertifikat {
+      _betrag: 5125.78,
+      _typ: 'call',
+      _hebel: 1.441,
+      _punkte: 23299,
+      _ablauf_datum: 2020-08-24T20:11:41.000Z
+    }
+  ],
   _orders: [
     Order {
       _typ: 'buy',
@@ -163,7 +206,7 @@ Indem ihr die &quot;Klasse&quot; initialisiert <code>new ags.Api(agspiel-cookie)
       _stueckzahl: 24026,
       _isOrderregel: false,
       _isSystembankorder: false,
-      _datum: '2020-08-23 21:09:37'
+      _datum: 2020-08-23T14:09:24.000Z
     },
     ...
   ],
@@ -188,45 +231,53 @@ Indem ihr die &quot;Klasse&quot; initialisiert <code>new ags.Api(agspiel-cookie)
     _name: 'Extrem Liberaler Index',
     _highscore: 2,
     _punkte: 570,
-    _gruendung: '2014-05-10 10:31:19'
+    _gruendung: 2014-05-10T08:31:19.000Z
   }
 }
 </code></pre>
 <ul>
 <li>Chronik</li>
 </ul>
-<pre class="prettyprint source lang-js"><code>api.chronik(140037).then((chronik) => {
+<pre class="prettyprint source lang-js"><code>api.chronik(153748).then((chronik) => {
     console.log(chronik);
 });
 
 // Output:
 Chronik {
-  _namenswechsel: [],
+  _namenswechsel: [
+    Namenswechsel {
+      _datum: 2020-02-05T23:00:00.000Z,
+      _oldName: 'MAPHIA EXPRESS',
+      _newName: 'Seuchen AG '
+    },
+    ...
+  ],
   _kes: [
     Ke {
-      _datum: 2016-11-02T23:00:00.000Z,
-      _anzahl: 2000000,
-      _volumen: 600000000
+      _datum: 2019-05-31T22:00:00.000Z,
+      _anzahl: 4999440,
+      _volumen: 624930000
     },
     ...
   ],
   _khs: [
     Kh {
-      _datum: 2016-11-29T23:00:00.000Z,
-      _anzahl: 35000,
-      _volumen: 5056100
-    }
-  ],
-  _uebernahmen: [
-    Uebernahme {
-      _datum: 2019-09-21T22:00:00.000Z,
-      _uebernommener: 174448,
-      _uebernahmekh: 0
+      _datum: 2020-08-18T22:00:00.000Z,
+      _anzahl: 400000,
+      _volumen: 90820000
     },
     ...
   ],
-  _regname: 'Smith AG',
-  _regdatum: 2015-09-23T22:00:00.000Z,
+  _uebernahmen: [
+    Uebernahme {
+      _datum: 2020-06-03T22:00:00.000Z,
+      _uebernommener: 174799,
+      _uebernahmekh: 14000
+    },
+    ...
+  ],
+  _regname: 'Waldbahn-Bayern',
+  _regdatum: 2016-05-26T22:00:00.000Z,
   _uebernehmer: null,
   _uebernahmedatum: null,
   _liquidationsdatum: null
@@ -339,7 +390,7 @@ Chronik {
     _datum: 2020-08-24T05:40:04.000Z,
     _konto: 'Aktien',
     _betrag: -2104.92,
-    _vermerk: 'Kauf 18 Stk. '
+    _vermerk: 'Kauf 18 Stk. #176221 (Temple of Love) zu 116,94€'
   },
   ...
 ]
@@ -358,14 +409,14 @@ Chronik {
     _name: 'SAX - Solider Aktienindex',
     _highscore: 30,
     _punkte: 134,
-    _gruendung: '2013-11-07 22:08:06'
+    _gruendung: 2013-11-07T21:08:06.000Z
   },
   Index {
     _id: 76,
     _name: 'Premiumrendite AG - Index',
     _highscore: 3,
     _punkte: 549,
-    _gruendung: '2011-07-03 12:47:05'
+    _gruendung: 2011-07-03T10:47:05.000Z
   },
   ...
 ]
@@ -399,7 +450,7 @@ Chronik {
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.5</a> on Mon Aug 24 2020 11:52:35 GMT+0200 (Central European Summer Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.5</a> on Mon Aug 24 2020 19:36:15 GMT+0200 (GMT+02:00) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>
