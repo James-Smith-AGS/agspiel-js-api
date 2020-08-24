@@ -11,8 +11,16 @@
   "license": "MIT",
   "bugs": "https://github.com/James-Smith-AGS/agspiel-js-api/issues",
   "homepage": "https://james-smith-ags.github.io/agspiel-js-api/",
-  "keywords": ["npm", "node", "javascript", "ag-spiel"],
-  "repository": ["type": "git", "url": "https://github.com/James-Smith-AGS/agspiel-js-api.git"],
+  "keywords": [
+    "npm",
+    "node",
+    "javascript",
+    "ag-spiel"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/James-Smith-AGS/agspiel-js-api.git"
+  },
   "nyc": {
     "reporter": [
       "lcov",
