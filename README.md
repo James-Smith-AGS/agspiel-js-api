@@ -1,5 +1,6 @@
 # AG-Spiel JavaScript API-Wrapper
 
+![mastertesting](https://github.com/James-Smith-AGS/agspiel-js-api/workflows/mastertesting/badge.svg?branch=master&event=push)
 ![developtesting](https://github.com/James-Smith-AGS/agspiel-js-api/workflows/developtesting/badge.svg?branch=develop&event=push)
 
 __Bitte beachtet bei der Nutzung folgendes:__
