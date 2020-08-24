@@ -1,9 +1,13 @@
 # AG-Spiel JavaScript API-Wrapper
 
-![version](https://img.shields.io/npm/v/agspiel-js-api)
+![GitHub package.json version](https://img.shields.io/github/package-json/v/James-Smith-AGS/agspiel-js-api)
+![NodeJS Versions](https://img.shields.io/badge/nodejs-v10.22.0%20%3D<%20v14.8.0-brightgreen)
 ![licence](https://img.shields.io/npm/l/agspiel-js-api)
 ![master](https://github.com/James-Smith-AGS/agspiel-js-api/workflows/mastertesting/badge.svg?branch=master&event=push)
 ![develop](https://github.com/James-Smith-AGS/agspiel-js-api/workflows/developtesting/badge.svg?branch=develop&event=push)
+![GitHub last commit](https://img.shields.io/github/last-commit/James-Smith-AGS/agspiel-js-api)
+![GitHub issues](https://img.shields.io/github/issues/James-Smith-AGS/agspiel-js-api)
+![Website](https://img.shields.io/website?down_color=red&down_message=offline&label=Docu&up_color=green&up_message=online&url=https%3A%2F%2Fjames-smith-ags.github.io%2Fagspiel-js-api%2F)
 
 __Bitte beachtet bei der Nutzung folgendes:__
 `§5 Das Benutzen und von Programmen/Bots, die einen Spielvorteil ermöglichen, Funktionen bieten die sich mit Premiumfeatures überschneiden oder hohe Serverbelastungen erzeugen (z.B. Parsen der Seite mit mehr als einem Aufruf pro Sekunde), ist verboten. Die Bewerbung/Verbreitung von Browserplugins oder anderer clientseitiger Software zur Erweiterung/Veränderung der Webseite ist verboten.`
