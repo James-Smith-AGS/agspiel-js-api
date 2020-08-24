@@ -1,0 +1,9 @@
+.github/
+.nyc_output/
+coverage/
+node_modules/
+.idea/
+.vscode/
+docs/
+jsdoc.json
+test.js

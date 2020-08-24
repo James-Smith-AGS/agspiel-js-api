@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>Home - Documentation</title>
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Ag.html">Ag</a></li><li><a href="AgOfList.html">AgOfList</a></li><li><a href="Aktie.html">Aktie</a></li><li><a href="Aktionaer.html">Aktionaer</a></li><li><a href="Anleihe.html">Anleihe</a></li><li><a href="Api.html">Api</a><ul class='methods'><li data-type='method'><a href="Api.html#ag">ag</a></li><li data-type='method'><a href="Api.html#agListe">agListe</a></li><li data-type='method'><a href="Api.html#aktionaere">aktionaere</a></li><li data-type='method'><a href="Api.html#bilanzen">bilanzen</a></li><li data-type='method'><a href="Api.html#chronik">chronik</a></li><li data-type='method'><a href="Api.html#indexListe">indexListe</a></li><li data-type='method'><a href="Api.html#kontoauszug">kontoauszug</a></li></ul></li><li><a href="Auth.html">Auth</a></li><li><a href="Bilanz.html">Bilanz</a></li><li><a href="Ceo.html">Ceo</a></li><li><a href="Chronik.html">Chronik</a></li><li><a href="Index_.html">Index</a></li><li><a href="Ke.html">Ke</a></li><li><a href="Kh.html">Kh</a></li><li><a href="Kontoauszug.html">Kontoauszug</a></li><li><a href="Kredit.html">Kredit</a></li><li><a href="Namenswechsel.html">Namenswechsel</a></li><li><a href="Order.html">Order</a></li><li><a href="Uebernahme.html">Uebernahme</a></li><li><a href="Zertifikat.html">Zertifikat</a></li></ul>
+</nav>
+
+<div id="main">
+    
+
+    
+
+
+
+    
+
+
+    <section class="package">
+        <h3> </h3>		
+    </section>
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    <section class="readme usertext">
+        <article><h1>AG-Spiel JavaScript API-Wrapper</h1>
+<p><strong>Bitte beachtet bei der Nutzung folgendes:</strong>
+<code>§5 Das Benutzen und von Programmen/Bots, die einen Spielvorteil ermöglichen, Funktionen bieten die sich mit Premiumfeatures überschneiden oder hohe Serverbelastungen erzeugen (z.B. Parsen der Seite mit mehr als einem Aufruf pro Sekunde), ist verboten. Die Bewerbung/Verbreitung von Browserplugins oder anderer clientseitiger Software zur Erweiterung/Veränderung der Webseite ist verboten.</code>
+<strong>Außerdem: Der volle Funktionsumfang dieser API kann nur mit einem Premiumaccount im AG-Spiel gewährleistet werden!</strong></p>
+<h2>Inhaltsverzeichnis</h2>
+<ul>
+<li><a href="#funktionsumfang">Features</a></li>
+<li><a href="#installationsanleitung">Installation</a></li>
+<li><a href="#cookie-auslesen">Cookie auslesen</a></li>
+<li><a href="#beispiele">Beispiele</a></li>
+</ul>
+<h2>Funktionsumfang</h2>
+<ul>
+<li>AG-Liste (API)</li>
+<li>Index-Liste (API)</li>
+<li>AG / Profil auslesen (API &amp; Website)</li>
+<li>Chronik auslesen (Website)</li>
+<li>Aktionärsstruktur auslesen (Website)</li>
+<li>Bilanzen auslesen (Website)</li>
+<li>Kontoauszug auslesen (Website)</li>
+<li>Orderbuch auslesen (API)</li>
+<li>Depot auslesen - Aktien, Anleihen, Kredite, Zertis (API)</li>
+</ul>
+<h2>Installationsanleitung</h2>
+<ul>
+<li><a href="https://nodejs.org/en/download/">NodeJS</a> installieren</li>
+<li>Projekt-Ordner erstellen</li>
+<li>Im Terminal des gerade erstellten Ordners NPM initialisieren <code>npm init -y</code></li>
+<li>Dieses Paket installieren <code>npm install --save agspiel-js-api</code></li>
+<li>.js-Datei anlegen und das Paket importieren <code>const agspiel = require('agspiel')</code></li>
+<li>Mit dem eigenen <code>ag-spiel</code>-Cookie authentifizieren und die API nutzen</li>
+</ul>
+<pre class="prettyprint source lang-js"><code>const agspiel = require('agspiel');
+
+const api = new ags.Api(&quot;&lt;Dein-AG-Spiel-Cookie>&quot;);
+
+api.ag(140037).then((ag) => {
+    console.log(ag);
+});
+</code></pre>
+<h2>Cookie auslesen</h2>
+<p>Die Cookies könnt ihr, solange ihr beim AG-Spiel eingeloggt seid, über euren Browser erfahren (Bei Firefox STRG+Umschalt+Q und eine beliebige Anfrage anklicken. Danach seht ihr rechts die Cookies).
+Indem ihr die &quot;Klasse&quot; initialisiert <code>new ags.Api(agspiel-cookie)</code> (siehe Beispiel oben) könnt ihr euch also &quot;einloggen&quot; und die API im vollen Umfang nutzen.</p>
+<h2>Beispiele</h2>
+<ul>
+<li>AG</li>
+</ul>
+<pre class="prettyprint source lang-js"><code>api.ag(140037).then((ag) => {
+    console.log(ag);
+});
+
+// Output:
+  _wkn: 140037,
+  _name: 'Smith AG',
+  _gruendung: '2015-09-24 17:43:39',
+  _aktienzahl: 3943847,
+  _in_liquidation: false,
+  _kurs: 1455.72,
+  _brief: 1501.52,
+  _geld: 1455.72,
+  _brief_stueckzahl: 8132,
+  _geld_stueckzahl: 21413,
+  _sw_aktie: 909.46,
+  _bbw_aktie: 1581.56,
+  _fp_aktie: 1169.78,
+  _kgv: 116.15,
+  _tagesvolumen: 0,
+  _depotwert: 8263222109.95,
+  _bargeld: 311181033.72,
+  _highscore: 117,
+  _highscore_groesse: 30,
+  _highscore_wachstum: 472,
+  _highscore_newcomer: 0,
+  _agsx_punkte: 994,
+  _in_agsx: false,
+  _handelsaktivitaet: 41,
+  _ceo: Ceo {
+    _name: 'James-Smith',
+    _index: 792,
+    _reg_datum: '2015-09-24 17:40:59',
+    _isGesperrt: false,
+    _isUserproject: false,
+    _premium: 2
+  },
+  _aktien: [
+    Aktie { _wkn: 173636, _stueckzahl: 27 },
+    ...
+  ],
+  _anleihen: [
+    Anleihe {
+      _betrag: 100000000,
+      _zins: 0.2,
+      _auszahlung_datum: '2020-08-24 12:58:19',
+      _laufzeit: 5
+    },
+    ...
+  ],
+  _kredite: [],
+  _zertifikate: [],
+  _orders: [
+    Order {
+      _typ: 'buy',
+      _limit: 1128.53,
+      _stueckzahl: 24026,
+      _isOrderregel: false,
+      _isSystembankorder: false,
+      _datum: '2020-08-23 21:09:37'
+    },
+    ...
+  ],
+  _dividende: 0,
+  _max_zertis: 1,
+  _tages_hoch: 1454.26,
+  _tages_tief: 1454.26,
+  _kurs_14d: 6.93,
+  _kurs_30d: -6.17,
+  _kurs_60d: -0.68,
+  _kurs_90d: -3.05,
+  _bw_14d: 0.64,
+  _bw_30d: 1.6,
+  _bw_60d: -1.63,
+  _bw_90d: 8.22,
+  _fp_14d: 2.3,
+  _fp_30d: 1.08,
+  _fp_60d: 10.85,
+  _fp_90d: 12.3,
+  _index: Index {
+    _id: 792,
+    _name: 'Extrem Liberaler Index',
+    _highscore: 2,
+    _punkte: 570,
+    _gruendung: '2014-05-10 10:31:19'
+  }
+}
+</code></pre>
+<ul>
+<li>Chronik</li>
+</ul>
+<pre class="prettyprint source lang-js"><code>api.chronik(140037).then((chronik) => {
+    console.log(chronik);
+});
+
+// Output:
+Chronik {
+  _namenswechsel: [],
+  _kes: [
+    Ke {
+      _datum: 2016-11-02T23:00:00.000Z,
+      _anzahl: 2000000,
+      _volumen: 600000000
+    },
+    ...
+  ],
+  _khs: [
+    Kh {
+      _datum: 2016-11-29T23:00:00.000Z,
+      _anzahl: 35000,
+      _volumen: 5056100
+    }
+  ],
+  _uebernahmen: [
+    Uebernahme {
+      _datum: 2019-09-21T22:00:00.000Z,
+      _uebernommener: 174448,
+      _uebernahmekh: 0
+    },
+    ...
+  ],
+  _regname: 'Smith AG',
+  _regdatum: 2015-09-23T22:00:00.000Z,
+  _uebernehmer: null,
+  _uebernahmedatum: null,
+  _liquidationsdatum: null
+}
+</code></pre>
+<ul>
+<li>Aktionärsstruktur</li>
+</ul>
+<pre class="prettyprint source lang-js"><code>api.aktionaere(140037).then((aktionaere) => {
+    console.log(aktionaere);
+});
+
+// Output:
+[
+  Aktionaer {
+    _rank: 1,
+    _wkn: 135665,
+    _name: 'Egel',
+    _anzahl: 1190513,
+    _aenderung: 0
+  },
+  Aktionaer {
+    _rank: 2,
+    _wkn: 140818,
+    _name: 'BEST AG',
+    _anzahl: 996857,
+    _aenderung: 0
+  },
+  ...
+]
+
+</code></pre>
+<ul>
+<li>Bilanzen</li>
+</ul>
+<pre class="prettyprint source lang-js"><code>api.bilanzen(140037).then((bilanzen) => {
+    console.log(bilanzen);
+});
+
+// Output:
+[
+  Bilanz {
+    _datum: 2018-09-29T22:00:00.000Z,
+    _aktienzahl: 3943847,
+    _kurs: 271.1,
+    _aktiendepot: 840188327,
+    _anleihendepot: 462000000,
+    _kreditdepot: 0,
+    _zertifikatedepot: 0,
+    _gesamtdepotwert: 1302188327,
+    _bargeld: 335909969,
+    _kfd: -25.22,
+    _bwaktie: 415.36,
+    _platzwachstum: 694,
+    _platzgroesse: 39,
+    _platzgesamt: 331,
+    _fpaktie: 362.54,
+    _buchwert: 1638098295
+  },
+  Bilanz {
+    _datum: 2018-01-31T23:00:00.000Z,
+    _aktienzahl: 3943847,
+    _kurs: 260.51,
+    _aktiendepot: 763224729,
+    _anleihendepot: 432000000,
+    _kreditdepot: 0,
+    _zertifikatedepot: 0,
+    _gesamtdepotwert: 1195224729,
+    _bargeld: 333420505,
+    _kfd: 0,
+    _bwaktie: 387.6,
+    _platzwachstum: 567,
+    _platzgroesse: 39,
+    _platzgesamt: 146,
+    _fpaktie: 0,
+    _buchwert: 1528645235
+  },
+  Bilanz {
+    _datum: 2018-08-30T22:00:00.000Z,
+    _aktienzahl: 3943847,
+    _kurs: 260.51,
+    _aktiendepot: 763224729,
+    _anleihendepot: 432000000,
+    _kreditdepot: 0,
+    _zertifikatedepot: 0,
+    _gesamtdepotwert: 1195224729,
+    _bargeld: 333420505,
+    _kfd: 0,
+    _bwaktie: 387.6,
+    _platzwachstum: 567,
+    _platzgroesse: 39,
+    _platzgesamt: 146,
+    _fpaktie: 0,
+    _buchwert: 1528645235
+  },
+  ...
+]
+</code></pre>
+<ul>
+<li>Kontoauszug</li>
+</ul>
+<pre class="prettyprint source lang-js"><code>api.kontoauszug(140037).then((kontoauszug) => {
+    console.log(kontoauszug);
+});
+
+// Output:
+[
+  Kontoauszug {
+    _id: 20907214,
+    _datum: 2020-08-24T05:40:04.000Z,
+    _konto: 'Aktien',
+    _betrag: -2104.92,
+    _vermerk: 'Kauf 18 Stk. '
+  },
+  ...
+]
+</code></pre>
+<ul>
+<li>Index-Liste</li>
+</ul>
+<pre class="prettyprint source lang-js"><code>api.indexListe().then((indizes) => {
+    console.log(indizes);
+});
+
+// Output:
+[
+  Index {
+    _id: 7,
+    _name: 'SAX - Solider Aktienindex',
+    _highscore: 30,
+    _punkte: 134,
+    _gruendung: '2013-11-07 22:08:06'
+  },
+  Index {
+    _id: 76,
+    _name: 'Premiumrendite AG - Index',
+    _highscore: 3,
+    _punkte: 549,
+    _gruendung: '2011-07-03 12:47:05'
+  },
+  ...
+]
+</code></pre>
+<ul>
+<li>AG-Liste</li>
+</ul>
+<pre class="prettyprint source lang-js"><code>api.agListe().then((ags) => {
+    console.log(ags);
+});
+
+// Output:
+[
+  AgOfList { _wkn: 100001, _name: 'Rady', _ceo: 'Rady' },
+  AgOfList { _wkn: 100352, _name: 'MLM System AG', _ceo: 'HerrMadoff' },
+  AgOfList { _wkn: 101224, _name: 'AlPharm AG', _ceo: 'blueman' },
+  ...
+]
+</code></pre></article>
+    </section>
+
+
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.5</a> on Mon Aug 24 2020 11:52:35 GMT+0200 (Central European Summer Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+
+
+</body>
+</html>
