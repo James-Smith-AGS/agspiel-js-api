@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>api/api.js - Documentation</title>
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Ag.html">Ag</a></li><li><a href="AgOfList.html">AgOfList</a></li><li><a href="Aktie.html">Aktie</a></li><li><a href="Aktionaer.html">Aktionaer</a></li><li><a href="Anleihe.html">Anleihe</a></li><li><a href="Api.html">Api</a><ul class='methods'><li data-type='method'><a href="Api.html#ag">ag</a></li><li data-type='method'><a href="Api.html#agListe">agListe</a></li><li data-type='method'><a href="Api.html#aktionaere">aktionaere</a></li><li data-type='method'><a href="Api.html#bilanzen">bilanzen</a></li><li data-type='method'><a href="Api.html#chronik">chronik</a></li><li data-type='method'><a href="Api.html#indexListe">indexListe</a></li><li data-type='method'><a href="Api.html#kontoauszug">kontoauszug</a></li></ul></li><li><a href="Auth.html">Auth</a></li><li><a href="Bilanz.html">Bilanz</a></li><li><a href="Ceo.html">Ceo</a></li><li><a href="Chronik.html">Chronik</a></li><li><a href="Index_.html">Index</a></li><li><a href="Ke.html">Ke</a></li><li><a href="Kh.html">Kh</a></li><li><a href="Kontoauszug.html">Kontoauszug</a></li><li><a href="Kredit.html">Kredit</a></li><li><a href="Namenswechsel.html">Namenswechsel</a></li><li><a href="Order.html">Order</a></li><li><a href="Uebernahme.html">Uebernahme</a></li><li><a href="Zertifikat.html">Zertifikat</a></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">api/api.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>const axios = require("axios").default;
+const parse = require("../parser");
+const Chronik = require("../models/chronik");
+const Aktionaer = require("../models/aktionaer");
+const Bilanz = require("../models/bilanz");
+const Kontoauszug = require("../models/kontoauszug");
+const Index = require("../models/agindex");
+const AgOfList = require("../models/agOfList");
+
+/** 
+ * Objekt zur Authentifizierung im AG-Spiel 
+ */
+class Auth {
+    /**
+     * @param  {string} agspielCookie - Einzigartiger "ag-spiel"-Cookie, der zum Log-in benötigt wird.
+     */
+    constructor(agspielCookie) {
+        this.agsCookie = agspielCookie;
+        this.client = this.agsCookie;
+    }
+
+    set agsCookie(cookie) {
+        this._agsCookie = cookie;
+    }
+    /**
+     * @public
+     * @property {string} agsCookie - Einzigartiger "ag-spiel"-Cookie, der zum Log-in benötigt wird.
+     */
+    get agsCookie() {
+        return this._agsCookie;
+    }
+    
+    /**
+     * Erstellt Axios-Client mit dem AG-Spiel-Cookie - wird für die Requests benötigt.
+     * @private
+     * @param {string} - AGS-Cookie
+     */
+    set client(cookie) {
+        this._client = axios.create({
+            baseURL: "https://www.ag-spiel.de/",
+            headers: {
+                "Cookie": `ag-spiel=${cookie};`
+            }
+        });
+        this._client.interceptors.response.use((response) => {
+            if (typeof response.data == "string" &amp;&amp; response.data.includes("ssen sich registrieren")) {
+                throw new Error("Du musst dich einloggen! Kein valider Cookie wurde hinterlegt.");
+            } else {
+                return response;
+            }
+        });
+    }
+
+    get client() {
+        return this._client;
+    }
+}
+
+/** Objekt zum Abfragen der Daten aus der offiziellen AG-Spiel API und den Webseiten. Wird durch das "Auth"-Objekt erweitert.
+ * @extends Auth
+*/
+class Api extends Auth {
+    /**
+     * @param  {string} agspielCookie - Einzigartiger "ag-spiel"-Cookie, der zum Log-in benötigt wird.
+     * @param  {number} [cacheTime=5*60*1000] - Dauer in Millisekunden für die die Daten der API im Cache zwischengespeichert werden.
+     * @param  {string} [version="5"] - API-Version, die genutzt werde soll.
+     */
+    constructor(agspielCookie, cacheTime=5*60*1000, version="5") {
+        super(agspielCookie);
+        this.version = version;
+        this.timestamp = null;
+        this.cacheTime = cacheTime;
+    }
+
+    set version(v) {
+        this._version = v;
+    }
+
+    /**
+     * @property {string} version - API-Version, die genutzt werde soll.
+     */
+    get version() {
+        return this._version;
+    }
+
+    set cacheTime(cacheTime) {
+        this._cacheTime = cacheTime;
+    }
+
+    /**
+     * @property {number} cacheTime - Dauer in Millisekunden für die die Daten der API im Cache zwischengespeichert werden.
+     */
+    get cacheTime() {
+        return this._cacheTime;
+    }
+
+    /**
+     * Funktion, die beim Aufruf die gewünschte Seite des AGS lädt und gleichzeitig prüft, ob die API-Daten im Cache (Cachetimer default: 5 Mins) verfügbar sind oder neu abgerufen werden müssen.
+     * @private
+     * @param {string} url - URL zu einer Seite des AG-Spiels 
+     * @returns {Promise.&lt;Array>} - Gibt ein Pomise-Object zurück, welches nach der Auflösung ein Array mit den Daten der Website und der API enthält.
+     */
+    _request(url) {
+        return Promise.all([
+            this.client.get(url),
+            new Promise((resolve) => {
+                if (!this.timestamp || (Date.now() - this.timestamp) > this.cacheTime) {
+                    // console.log("Api-Daten älter als 5 Minuten und werden abgefragt");
+                    this.client.get(`https://www.ag-spiel.de/api/get/data.php?version=${this.version}`).then((res) => {
+                        this._data = res;
+                        this.timestamp = Date.now();
+                        resolve(res);
+                    });
+                } else {
+                    // console.log("Api Daten jünger als 5 Minuten und daher noch aktuell");
+                    resolve(this._data);
+                }
+            }),
+        ]);
+    }
+
+    /**
+     * Funktion, die mit dem hinterlegten Cookie eine beliebige Seite des AG-Spiels aufruft.
+     * @private
+     * @param {string} url - URL zu einer Seite des AG-Spiels.
+     * @returns {Promise.&lt;Object>} - Gibt ein Pomise-Object zurück, welches nach der Auflösung den Inhalt der Website enthält.
+     */
+    _request_page(url) {
+        return this.client.get(url);
+    }
+
+    /**
+     * Funktion, die beim aufrufen prüft, ob die API-Daten im definierten Zeitraum des Cache-Timers (default: 5 Minuten) schonmal abgerufen wurden sie ggf. neu lädt.
+     * @private
+     * @returns {Promise.&lt;Object>} - Gibt ein Pomise-Object zurück, welches nach der Auflösung den Inhalt der API enthält.
+     */
+    _request_api() {
+        return new Promise((resolve) => {
+            if (!this.timestamp || (Date.now() - this.timestamp) > this.cacheTime) {
+                // console.log("Api-Daten älter als 5 Minuten und werden abgefragt");
+                this.client.get(`https://www.ag-spiel.de/api/get/data.php?version=${this.version}`).then((res) => {
+                    this._data = res;
+                    this.timestamp = Date.now();
+                    resolve(res);
+                });
+            } else {
+                // console.log("Api Daten jünger als 5 Minuten und daher noch aktuell");
+                resolve(this._data);
+            }
+        });
+    }
+
+    /**
+     * @param  {number} wkn
+     * @returns {Promise.&lt;Ag>} - Promise Object welches ein AG-Object wiedergibt.
+     */
+    ag(wkn) {
+        return this._request(`index.php?section=profil&amp;aktie=${String(wkn)}`).then(parse.profil).catch((e) => console.log(e));
+    }
+
+    /**
+     * @param  {number} wkn
+     * @returns {Promise.&lt;Chronik>} - Promise Object welches ein Chronik-Object wiedergibt.
+     */
+    chronik(wkn) {
+        return this._request_page(`index.php?section=chronik&amp;wkn=${wkn}`).then(parse.chronik).catch((e) => console.log(e));
+    }
+
+    /**
+     * @param  {number} wkn
+     * @returns {Promise.&lt;Aktionaer[]>} - Promise Object welches ein Array mit Aktionaer-Objecten wiedergibt.
+     */
+    aktionaere(wkn) {
+        return this._request_page(`index.php?section=agstruktur&amp;WKN=${wkn}`).then(parse.aktionaere).catch((e) => console.log(e));
+    }
+
+    /**
+     * @param  {number} wkn
+     * @returns {Promise.&lt;Bilanz[]>} - Promise Object welches ein Array mit Bilanz-Objecten wiedergibt.
+     */
+    bilanzen(wkn) {
+        return this._request_page(`index.php?section=bilanzen&amp;wkn=${wkn}`).then(parse.bilanzen).catch((e) => console.log(e));
+    }
+
+    /**
+     * @param  {number} wkn
+     * @returns {Promise.&lt;Kontoauszug[]>} - Promise Object welches ein Array mit Kontoauszug-Objecten wiedergibt.
+     */
+    kontoauszug(wkn) {
+        return this._request_page(`index.php?section=konto&amp;aktie=${wkn}`).then(parse.kontoauszug).catch((e) => console.log(e));
+    }
+
+    /**
+     * @returns {Promise.&lt;Index[]>} - Promise Object welches ein Array von Index-Objecten wiedergibt (sortiert nach IndexID).
+     */
+    indexListe() {
+        return this._request_api().then(parse.indizes).catch((e) => console.log(e));
+    }
+    
+    /**
+     * @returns {Promise.&lt;AgOfList[]>} - Promise Object welches eine Liste von allen AGs mit WKNs, Name und CEO wiedergibt (sortiert nach WKN).
+     */
+    agListe() {
+        return this._request_api().then(parse.ags).catch((e) => console.log(e));
+    }
+}
+
+module.exports = Api;</code></pre>
+        </article>
+    </section>
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.5</a> on Mon Aug 24 2020 11:52:35 GMT+0200 (Central European Summer Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+
+
+</body>
+</html>

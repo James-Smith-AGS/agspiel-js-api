@@ -1,0 +1,29 @@
+{
+  "name": "agspiel-js-api",
+  "version": "0.0.1",
+  "description": "",
+  "main": "src",
+  "scripts": {
+    "test": "nyc mocha",
+    "generateDocs": "jsdoc README.md -c jsdoc.json"
+  },
+  "author": "James Smith @ag-spiel",
+  "license": "MIT",
+  "nyc": {
+    "reporter": [
+      "lcov",
+      "text"
+    ]
+  },
+  "devDependencies": {
+    "docdash": "^1.2.0",
+    "eslint": "^7.7.0",
+    "mocha": "^8.1.1",
+    "nyc": "^15.1.0"
+  },
+  "dependencies": {
+    "axios": "^0.20.0",
+    "cheerio": "^1.0.0-rc.3",
+    "puppeteer": "^5.2.1"
+  }
+}

@@ -1,0 +1,13 @@
+node_modules/
+typings/
+
+.nyc_output/
+coverage/
+
+
+jsconfig.json
+typings.json
+jsconfig.json
+.eslintrc
+
+test.js

@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+<link rel="alternate" media="only screen and (max-width: 1024px)" href="https://www.ag-spiel.de/app">
+<title> AG-Spiel.de Börsenspiel - Deine virtuelle Aktiengesellschaft</title>
+<meta name="keywords" content="Börsen, Aktien, Börsenspiel, Browsergame, Aktiengesellschaft, Handeln, Traden, AG">
+<meta name="description" content="Spiele mit deiner eigenen Aktiengesellschaft kostenlos an der Börse von www.AG-Spiel.de. Melde dich an und starte sofort zu handeln!">
+<meta property="fb:page_id" content="153292014704816">
+
+<link rel="image_src" href="https://www.ag-spiel.de/images/symbol.jpg">
+<link rel="apple-touch-icon" href="https://www.ag-spiel.de/apple-touch-icon-precomposed.png"><link rel="stylesheet" href="./chronik_files/saved_resource" type="text/css">
+
+<script>
+var app=0;
+
+function check(url,msg) {
+Check = confirm(msg);
+if(Check == true) location.href=url;
+}
+</script>
+<script type="text/javascript">
+
+
+
+
+var Serverzeit = new Date(2020, 8, 23, 19, 02, 04);
+
+function UhrzeitAnzeigen()
+{
+    
+
+    var Stunden = Serverzeit.getHours();
+    var Minuten = Serverzeit.getMinutes();
+    var Sekunden = Serverzeit.getSeconds();
+    Serverzeit.setSeconds(Sekunden+1);
+
+    if(Stunden <= 9)
+    {
+        Stunden = "0" + Stunden;
+    }
+
+    if(Minuten <= 9)
+    {
+        Minuten = "0" + Minuten;
+    }
+
+    if(Sekunden <= 9)
+    {
+        Sekunden = "0" + Sekunden;
+    }
+
+    Uhrzeitanzeige = Stunden + ":" + Minuten + ":" + Sekunden;
+
+    
+    document.getElementById("uhr").innerHTML = Uhrzeitanzeige;
+    
+    
+
+    setTimeout("UhrzeitAnzeigen()", 1000);
+}
+
+
+</script>
+<script type="text/javascript" src="./chronik_files/loader.js.Download"></script><script>    google.charts.load('current', {packages: ['corechart'], 'language': 'de'});</script><script type="text/javascript" charset="UTF-8" src="./chronik_files/loader.js(1).Download"></script><script type="text/javascript" src="./chronik_files/saved_resource(1)"></script>
+<link rel="shortcut icon" type="image/x-icon" href="https://www.ag-spiel.de/favicon.ico">
+
+<style type="text/css"></style><link id="load-css-0" rel="stylesheet" type="text/css" href="./chronik_files/tooltip.css"><link id="load-css-1" rel="stylesheet" type="text/css" href="./chronik_files/util.css"><script type="text/javascript" charset="UTF-8" src="./chronik_files/jsapi_compiled_i18n_default_module__de.js.Download"></script><script type="text/javascript" charset="UTF-8" src="./chronik_files/jsapi_compiled_i18n_graphics_module__de.js.Download"></script><script type="text/javascript" charset="UTF-8" src="./chronik_files/jsapi_compiled_i18n_ui_module__de.js.Download"></script><script type="text/javascript" charset="UTF-8" src="./chronik_files/jsapi_compiled_i18n_corechart_module__de.js.Download"></script></head>
+
+<body onload="UhrzeitAnzeigen(&#39;jetzt&#39;);">
+<div id="fb-root"></div>
+
+
+<script>var lastTimestampChannel1 = 1598202124;var lastTimestampChannel2 = 0;var lastTimestampChannel3 = 0;var lastTimestampChannel4 = 0;</script><div id="bg_head"></div>
+<div id="bg_menu"></div>
+<div id="main">
+    
+    <div id="multiwarning" style="display:none; padding: 5px; z-index: 2; font-weight:bold; position:absolute; left: 100px; top:20px; border:2px solid red; background-color: white;">
+        Achtung!
+        <br>Es gibt mehrere Spieler mit der gleichen IP wie du (gleicher PC / gleiches Netzwerk).
+        <br>Bitte denkt daran, dass nach §2 des <a href="https://www.ag-spiel.de/index.php?section=regeln">Regelwerks</a> kein Handelskontakt zwischen solchen Spielern bestehen darf! Sollte ein Account genutzt werden, um einem anderen Account
+        einen Vorteil zu verschaffen, werden beide Accounts unwiderruflich durch die Spielleitung gesperrt.
+        <br><br>Du kannst diese <a href="https://www.ag-spiel.de/index.php?action=nowarning">Warnung ausblenden</a> <span style="font-size:80%"></span>
+    </div>    <div id="top">
+        <div id="banner" onclick="location.href = &#39;/index.php?section=start&#39;">
+        </div>
+        <div id="chat">
+            <script>
+    var selectedChannel = 1;
+    var getChatInverval = window.setInterval("getChat(selectedChannel,0)",7000);
+        
+    
+    $(window).blur(function() {
+        stopChatRefresh();
+    });
+    
+    function stopChatRefresh(){
+        $("#ajaxbox").addClass("inactive");
+        clearInterval(getChatInverval);
+    }
+    
+    function startChatRefresh(){
+        $("#ajaxbox").removeClass("inactive");
+        setTimeout(getChat(selectedChannel,0), 500);
+        getChatInverval = window.setInterval("getChat(selectedChannel,0)",7000);
+    }
+
+    $(window).focus(function() {
+        startChatRefresh();
+    });
+    
+    $(document).ready(function(){
+        getChat(selectedChannel);
+        $("#channel div").click(function(){
+            selectedChannel = $(this).attr("channel");
+            $(this).removeClass("newMessages");
+            $("#channel div").removeClass("selected");
+            $(this).addClass("selected");
+            $("#channel_id").val(selectedChannel);
+            getChat(selectedChannel,0);
+        });
+    });
+    function getChat(selectedChannel,f){
+        $(".chatform input").show();
+        if(selectedChannel==1){
+            t = "ba71f2574edc273ca16ed9a74219e6f41d3717fc";
+        }
+        if(selectedChannel==2){
+            $(".chatform input").hide();
+            t = "20e985b76c02b763c86ba2c4a1a4f4bd834d2698";
+        }
+        if(selectedChannel==3){
+            t = "f387275bf7d56c7f10a65189cc3558777fcb3433";
+        }
+        if(selectedChannel==4){
+            t = "cc0f4547d9895af5d0d8f2596bbaf916aef7e79b";
+        }
+        $.getJSON( "https://www.ag-spiel.de/api/get/chat.php?c="+selectedChannel+"&i=78454&app=0&ts=1598202124&g=&a=5&s=1&t="+t+"&f="+f, function( data ) {
+            $("#ajaxbox").html(""+data["html"]);
+            if(selectedChannel==1){lastTimestampChannel1 = data["timestamp"];}
+            if(selectedChannel==2){lastTimestampChannel2 = data["timestamp"];}
+            if(selectedChannel==3){lastTimestampChannel3 = data["timestamp"];}
+            if(selectedChannel==4){lastTimestampChannel3 = data["timestamp"];}
+        });
+    }   
+    function refresh(){getChat(selectedChannel,1);}
+    </script>
+        <div name="ajaxbox" id="ajaxbox" class="shoutbox inactive"><div id="shoutdiv"><a href="https://www.ag-spiel.de/index.php?section=profil&amp;spieler=Felician">DIONYSOS</a> <span style="font-size:11px;">vor 2 Min.</span> &nbsp;»&nbsp; <span class="">kanst 100 nehmen,hab Geld wie Heu</span></div><div id="shoutdiv"><a href="https://www.ag-spiel.de/index.php?section=profil&amp;spieler=Madman">Chaos Trade Ltd</a> <span style="font-size:11px;">vor 1 Min.</span> &nbsp;»&nbsp; <span class="">ich weiss ned wieviel heu du hast, darum nehm ich 50 mio euro</span></div><div id="shoutdiv"><a href="https://www.ag-spiel.de/index.php?section=profil&amp;spieler=Felician">DIONYSOS</a> <span style="font-size:11px;">vor 1 Min.</span> &nbsp;»&nbsp; <span class="">hab genau 150.021.864,29€ Heu....prost</span></div><div id="shoutdiv"><span style="font-weight:bold; opacity:0.9;"><i class="fa fa-mobile"></i></span> <a href="https://www.ag-spiel.de/index.php?section=profil&amp;spieler=RenardCilius">Marten Group SE</a> <span style="font-size:11px;"></span> &nbsp;»&nbsp; <span class="">Gz</span></div><div id="shoutdiv"><a href="https://www.ag-spiel.de/index.php?section=profil&amp;spieler=W%F6lfchen">Wölfchen AG</a> <span style="font-size:11px;"></span> &nbsp;»&nbsp; <span class="">held hab ich nicht gg</span></div><div id="shoutdiv"><a href="https://www.ag-spiel.de/index.php?section=profil&amp;spieler=W%F6lfchen">Wölfchen AG</a> <span style="font-size:11px;"></span> &nbsp;»&nbsp; <span class="">geld</span></div></div><form class="chatform">
+    <input type="hidden" value="8b1a1f735f782d69ae8be6788b3898bb88feebb8" name="token" style="display: inline-block;">
+
+<input id="shoutinput" autocomplete="off" name="text" size="70" maxlength="300" type="text" tabindex="0">
+<input type="button" id="chat_submit" value="schreiben">
+<input type="hidden" name="channel_id" id="channel_id" value="1" style="display: inline-block;">
+<div id="channel"><div channel="2" id="channel2" class="newMessages">Handelsparkett</div><div channel="4" id="channel4">Off-Topic</div><div channel="1" id="channel1" class="selected">AG-Spiel</div>
+</div>
+</form>
+        </div>
+        <script type="text/javascript">
+    var $visible = 0;
+    function whosonline() {
+        if ($visible == 0) {
+            $visible = 1;
+            document.getElementById('onlinelist').className = 'onlinelist';
+        } else {
+            $visible = 0;
+            document.getElementById('onlinelist').className = 'onlinelist invis';
+        }
+    }
+
+
+</script>
+
+<div id="onlinelistbutton">Wer ist online?</div>
+<div class="onlinelist" id="onlinelist" style="width: 600px;">
+<div style="float:left; width:25%;"><a href="https://www.ag-spiel.de/index.php?section=profil&amp;userid=84175">AhnungDevelopment</a></div><div style="float:left; width:25%;"><a href="https://www.ag-spiel.de/index.php?section=profil&amp;userid=13436">AktienZOO AG</a></div><div style="float:left; width:25%;"><a href="https://www.ag-spiel.de/index.php?section=profil&amp;userid=53182">Bullair</a></div><div style="float:left; width:25%;"><a href="https://www.ag-spiel.de/index.php?section=profil&amp;userid=69720">butterfly</a></div><div style="float:left; width:25%;"><a href="https://www.ag-spiel.de/index.php?section=profil&amp;userid=84201">Capital Solutions</a></div><div style="float:left; width:25%;"><a href="https://www.ag-spiel.de/index.php?section=profil&amp;userid=70135">CNC Industrie</a></div><div style="float:left; width:25%;"><a href="https://www.ag-spiel.de/index.php?section=profil&amp;userid=84180">Coffee Bean AG</a></div><div style="float:left; width:25%;"><a href="https://www.ag-spiel.de/index.php?section=profil&amp;userid=75318">Dieter</a></div><div style="float:left; width:25%;"><a href="https://www.ag-spiel.de/index.php?section=profil&amp;userid=77496">DIONYSOS</a></div><div style="float:left; width:25%;"><a href="https://www.ag-spiel.de/index.php?section=profil&amp;userid=82009">Dreamer AG</a></div><div style="float:left; width:25%;"><a href="https://www.ag-spiel.de/index.php?section=profil&amp;userid=41672">Egel</a></div><div style="float:left; width:25%;"><a href="https://www.ag-spiel.de/index.php?section=profil&amp;userid=71563">Goldy Invest</a></div><div style="float:left; width:25%;"><a href="https://www.ag-spiel.de/index.php?section=profil&amp;userid=61358">Handel AG</a></div><div style="float:left; width:25%;"><a href="https://www.ag-spiel.de/index.php?section=profil&amp;userid=83787">Handelsföderation</a></div><div style="float:left; width:25%;"><a href="https://www.ag-spiel.de/index.php?section=profil&amp;userid=82212">Helfer in der Not</a></div><div style="float:left; width:25%;"><a href="https://www.ag-spiel.de/index.php?section=profil&amp;userid=78618">Herrhausen Bank AG</a></div><div style="float:left; width:25%;"><a href="https://www.ag-spiel.de/index.php?section=profil&amp;userid=84237">Hi-Tech Soundsystems</a></div><div style="float:left; width:25%;"><a href="https://www.ag-spiel.de/index.php?section=profil&amp;userid=83643">Holos AG</a></div><div style="float:left; width:25%;"><a href="https://www.ag-spiel.de/index.php?section=profil&amp;userid=83379">Investment Unit </a></div><div style="float:left; width:25%;"><a href="https://www.ag-spiel.de/index.php?section=profil&amp;userid=61880">Irish Beer Ltd.</a></div><div style="float:left; width:25%;"><a href="https://www.ag-spiel.de/index.php?section=profil&amp;userid=72026">J.H Invest</a></div><div style="float:left; width:25%;"><a href="https://www.ag-spiel.de/index.php?section=profil&amp;userid=83837">Kammerjäger</a></div><div style="float:left; width:25%;"><a href="https://www.ag-spiel.de/index.php?section=profil&amp;userid=83728">Kuschel &amp; Keks AG</a></div><div style="float:left; width:25%;"><a href="https://www.ag-spiel.de/index.php?section=profil&amp;userid=83311">Mainhattan Agency</a></div><div style="float:left; width:25%;"><a href="https://www.ag-spiel.de/index.php?section=profil&amp;userid=83365">Makrotex Technologie</a></div><div style="float:left; width:25%;"><a href="https://www.ag-spiel.de/index.php?section=profil&amp;userid=83056">micha</a></div><div style="float:left; width:25%;"><a href="https://www.ag-spiel.de/index.php?section=profil&amp;userid=71569">Minatron LTD</a></div><div style="float:left; width:25%;"><a href="https://www.ag-spiel.de/index.php?section=profil&amp;userid=84164">Morgan Financial</a></div><div style="float:left; width:25%;"><a href="https://www.ag-spiel.de/index.php?section=profil&amp;userid=11862">Neue Welt AG</a></div><div style="float:left; width:25%;"><a href="https://www.ag-spiel.de/index.php?section=profil&amp;userid=82255">newBee Invest 3.0</a></div><div style="float:left; width:25%;"><a href="https://www.ag-spiel.de/index.php?section=profil&amp;userid=59387">NewCorp AG</a></div><div style="float:left; width:25%;"><a href="https://www.ag-spiel.de/index.php?section=profil&amp;userid=80368">Nuggetnauton</a></div><div style="float:left; width:25%;"><a href="https://www.ag-spiel.de/index.php?section=profil&amp;userid=64047">Okesy AG</a></div><div style="float:left; width:25%;"><a href="https://www.ag-spiel.de/index.php?section=profil&amp;userid=83582">PBerg AG</a></div><div style="float:left; width:25%;"><a href="https://www.ag-spiel.de/index.php?section=profil&amp;userid=81438">Phoenix KGaA</a></div><div style="float:left; width:25%;"><a href="https://www.ag-spiel.de/index.php?section=profil&amp;userid=20985">PTM Monstersystems</a></div><div style="float:left; width:25%;"><a href="https://www.ag-spiel.de/index.php?section=profil&amp;userid=73782">Rauch&amp;Sauf Logistik</a></div><div style="float:left; width:25%;"><a href="https://www.ag-spiel.de/index.php?section=profil&amp;userid=55773">raumZEIT</a></div><div style="float:left; width:25%;"><a href="https://www.ag-spiel.de/index.php?section=profil&amp;userid=55042">Schulz Edelmetalle</a></div><div style="float:left; width:25%;"><a href="https://www.ag-spiel.de/index.php?section=profil&amp;userid=83076">SHOCKWAVE AG</a></div><div style="float:left; width:25%;"><a style="color:#00DD00;" href="https://www.ag-spiel.de/index.php?section=profil&amp;userid=46178">Smith AG</a></div><div style="float:left; width:25%;"><a href="https://www.ag-spiel.de/index.php?section=profil&amp;userid=70836">Statistikamt</a></div><div style="float:left; width:25%;"><a href="https://www.ag-spiel.de/index.php?section=profil&amp;userid=84199">Temple of Love</a></div><div style="float:left; width:25%;"><a href="https://www.ag-spiel.de/index.php?section=profil&amp;userid=84105">Tihas Soft GmbH</a></div><div style="float:left; width:25%;"><a href="https://www.ag-spiel.de/index.php?section=profil&amp;userid=69731">Tom Investment</a></div><div style="float:left; width:25%;"><a href="https://www.ag-spiel.de/index.php?section=profil&amp;userid=83682">Trademark Exchange</a></div><div style="float:left; width:25%;"><a href="https://www.ag-spiel.de/index.php?section=profil&amp;userid=60571">trading-boss.de</a></div><div style="float:left; width:25%;"><a href="https://www.ag-spiel.de/index.php?section=profil&amp;userid=83977">Wissens-Marktplatz</a></div><div style="float:left; width:25%;"><a href="https://www.ag-spiel.de/index.php?section=profil&amp;userid=40480">Witwen &amp; Waisen Fond</a></div></div>    </div>
+    <div id="tickerbox">
+        
+
+
+<script type="text/javascript">
+<!--
+
+tText="                <b>Latest News:</b>             <a href='index.php?section=zeitung'>&bdquo;<i># # # W.i.P. gesucht # # #</i>&rdquo;</a>             <a href='index.php?section=zeitung'>&bdquo;<i>Zukünftiges agieren</i>&rdquo;</a>             <a href='index.php?section=zeitung'>&bdquo;<i>Phönix KGaA weiter auf Wachstumskurs!</i>&rdquo;</a>       <b>Latest Trades:</b>      3 Stk. <a href='index.php?section=profil&aktie=148708'>Herb Solutions AG</a> zu 2700.00&euro; (<span class='green'>+2.03% / 53.6&euro;</span>)     19 Stk. <a href='index.php?section=profil&aktie=148708'>Herb Solutions AG</a> zu 2646.40&euro; (<span class='green'>+0% / 0&euro;</span>)     2283 Stk. <a href='index.php?section=profil&aktie=148708'>Herb Solutions AG</a> zu 2620.00&euro; (<span class='red'>-1%/ -26.4&euro;</span>)     39 Stk. <a href='index.php?section=profil&aktie=148708'>Herb Solutions AG</a> zu 2568.00&euro; (<span class='red'>-2.96%/ -78.4&euro;</span>)  ";
+
+tInterval=100;
+
+tNr=4;
+
+tStop=true;
+
+if(document.getElementsByTagName('title')&&document.getElementsByTagName('title')[0].innerHTML)
+    {
+    var tGo;
+    tStop=tStop?' onmouseover="clearInterval(tGo)"onmouseout="tGo=setInterval(\'ticken()\',tInterval);"':'';
+    tCnt=0;
+    tHtml='<span>'+tText+'</span>';
+    document.write('<pre id="ticker"style="overflow:hidden;"'+tStop+'>');
+    for(i=0;i<tNr;++i){document.write(tHtml);}
+    document.write('</pre>');
+
+    function ticken()
+        {
+        tObj=document.getElementById('ticker');
+        tTxt=String(tObj.firstChild.innerHTML);
+        isTag=false;isTxt=false;
+        for(i=0;i<tTxt.length;++i)
+            {
+            if(tTxt.charAt(i)=='>')
+                {
+                isTag=false;continue;
+                }
+            if(tTxt.charAt(i)=='<')
+                {
+                isTag=true;continue;
+                }
+            if(!isTag)
+                {
+                tObj.firstChild.innerHTML=tTxt.substring(0,i)+tTxt.substring(i+1,tTxt.length);
+                isTxt=true;break;
+                }
+            }
+        if(!isTxt)
+            {
+            tObj.removeChild(tObj.firstChild);
+            tObj.innerHTML+=tHtml;
+            }
+        }
+    tGo=setInterval("ticken()",tInterval);
+    }
+// -->
+</script><pre id="ticker" style="overflow:hidden;" onmouseover="clearInterval(tGo)" onmouseout="tGo=setInterval(&#39;ticken()&#39;,tInterval);"><span><b></b><a href="https://www.ag-spiel.de/index.php?section=zeitung"><i></i></a><a href="https://www.ag-spiel.de/index.php?section=zeitung"><i></i></a><a href="https://www.ag-spiel.de/index.php?section=zeitung"><i>A weiter auf Wachstumskurs!</i>”</a>       <b>Latest Trades:</b>      3 Stk. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=148708">Herb Solutions AG</a> zu 2700.00€ (<span class="green">+2.03% / 53.6€</span>)     19 Stk. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=148708">Herb Solutions AG</a> zu 2646.40€ (<span class="green">+0% / 0€</span>)     2283 Stk. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=148708">Herb Solutions AG</a> zu 2620.00€ (<span class="red">-1%/ -26.4€</span>)     39 Stk. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=148708">Herb Solutions AG</a> zu 2568.00€ (<span class="red">-2.96%/ -78.4€</span>)  </span><span>                <b>Latest News:</b>             <a href="https://www.ag-spiel.de/index.php?section=zeitung">„<i># # # W.i.P. gesucht # # #</i>”</a>             <a href="https://www.ag-spiel.de/index.php?section=zeitung">„<i>Zukünftiges agieren</i>”</a>             <a href="https://www.ag-spiel.de/index.php?section=zeitung">„<i>Phönix KGaA weiter auf Wachstumskurs!</i>”</a>       <b>Latest Trades:</b>      3 Stk. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=148708">Herb Solutions AG</a> zu 2700.00€ (<span class="green">+2.03% / 53.6€</span>)     19 Stk. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=148708">Herb Solutions AG</a> zu 2646.40€ (<span class="green">+0% / 0€</span>)     2283 Stk. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=148708">Herb Solutions AG</a> zu 2620.00€ (<span class="red">-1%/ -26.4€</span>)     39 Stk. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=148708">Herb Solutions AG</a> zu 2568.00€ (<span class="red">-2.96%/ -78.4€</span>)  </span><span>                <b>Latest News:</b>             <a href="https://www.ag-spiel.de/index.php?section=zeitung">„<i># # # W.i.P. gesucht # # #</i>”</a>             <a href="https://www.ag-spiel.de/index.php?section=zeitung">„<i>Zukünftiges agieren</i>”</a>             <a href="https://www.ag-spiel.de/index.php?section=zeitung">„<i>Phönix KGaA weiter auf Wachstumskurs!</i>”</a>       <b>Latest Trades:</b>      3 Stk. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=148708">Herb Solutions AG</a> zu 2700.00€ (<span class="green">+2.03% / 53.6€</span>)     19 Stk. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=148708">Herb Solutions AG</a> zu 2646.40€ (<span class="green">+0% / 0€</span>)     2283 Stk. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=148708">Herb Solutions AG</a> zu 2620.00€ (<span class="red">-1%/ -26.4€</span>)     39 Stk. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=148708">Herb Solutions AG</a> zu 2568.00€ (<span class="red">-2.96%/ -78.4€</span>)  </span><span>                <b>Latest News:</b>             <a href="https://www.ag-spiel.de/index.php?section=zeitung">„<i># # # W.i.P. gesucht # # #</i>”</a>             <a href="https://www.ag-spiel.de/index.php?section=zeitung">„<i>Zukünftiges agieren</i>”</a>             <a href="https://www.ag-spiel.de/index.php?section=zeitung">„<i>Phönix KGaA weiter auf Wachstumskurs!</i>”</a>       <b>Latest Trades:</b>      3 Stk. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=148708">Herb Solutions AG</a> zu 2700.00€ (<span class="green">+2.03% / 53.6€</span>)     19 Stk. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=148708">Herb Solutions AG</a> zu 2646.40€ (<span class="green">+0% / 0€</span>)     2283 Stk. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=148708">Herb Solutions AG</a> zu 2620.00€ (<span class="red">-1%/ -26.4€</span>)     39 Stk. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=148708">Herb Solutions AG</a> zu 2568.00€ (<span class="red">-2.96%/ -78.4€</span>)  </span></pre>
+
+
+     </div>
+    <div id="menu">
+        
+
+
+<div id="nav">
+    <ul>
+        <li><a class="menu top" href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=170756">Meine AG<span class="newMessageCounter"></span></a>
+            <ul>
+                <li class="hide"><a class="menu" href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=170756">Meine AG<span class="newMessageCounter"></span></a></li>
+                <li><a class="menu" href="https://www.ag-spiel.de/index.php?section=nachrichten">Nachrichten<span class="newMessageCounter"></span></a></li>
+                <li><a class="menu" href="https://www.ag-spiel.de/index.php?section=start">Überblick</a></li>
+                <li><a class="menu" href="https://www.ag-spiel.de/index.php?section=agdepot">Depot</a></li>
+                <li><a class="menu" href="https://www.ag-spiel.de/index.php?section=depotanalyse&amp;aktie=170756">Depotanalyse</a></li>
+                <li><a class="menu" href="https://www.ag-spiel.de/index.php?section=depotstruktur">Depotstruktur</a></li>
+                <li><a class="menu" href="https://www.ag-spiel.de/index.php?section=bilanzen&amp;wkn=170756">Bilanzen</a></li>
+                <li><a class="menu" href="https://www.ag-spiel.de/index.php?section=gruppen">Index</a></li>
+                <li><a class="menu" href="https://www.ag-spiel.de/index.php?section=trades&amp;aktie=170756">Trades</a></li>
+                <li><a class="menu" href="https://www.ag-spiel.de/index.php?section=konto&amp;aktie=170756">Kontoauszug</a></li>
+                
+                <li><a class="menu" href="https://www.ag-spiel.de/index.php?section=ag">AG-Einstellungen</a></li>
+                <li><a class="menu" href="https://www.ag-spiel.de/index.php?section=export">Datenexport</a></li>
+                
+            </ul>
+        </li>
+        <li><a class="menu top" href="https://www.ag-spiel.de/index.php?section=agorderbuch">Handeln</a>
+            <ul>
+                <li><a class="menu" href="https://www.ag-spiel.de/index.php?section=agorderbuch">Aktien kaufen/verkaufen</a></li>
+                <li><a class="menu" href="https://www.ag-spiel.de/index.php?section=anleihen">Anleihen zeichnen</a></li>
+                <li><a class="menu" href="https://www.ag-spiel.de/index.php?section=kredite">Kredite aufnehmen</a></li>
+                <li><a class="menu" href="https://www.ag-spiel.de/index.php?section=agsx">Zertifikate zeichnen</a></li>
+                <li><a class="menu" href="https://www.ag-spiel.de/index.php?section=orderzentrale">Speedtrading</a></li>
+                <li><a class="menu" href="https://www.ag-spiel.de/index.php?section=orderregeln">Orderregeln</a></li>
+            </ul>
+        </li>
+        
+        <li><a class="menu top" href="https://www.ag-spiel.de/index.php?section=live">Börse</a>
+            <ul>
+                <li><a class="menu" href="https://www.ag-spiel.de/index.php?section=live">Live</a></li>
+                <li><a class="menu" href="https://www.ag-spiel.de/index.php?section=news">Newsticker</a></li>
+                <li><a class="menu" href="https://www.ag-spiel.de/index.php?section=suche">AG-Suche</a></li>
+                <li><a class="menu" href="https://www.ag-spiel.de/index.php?section=beobachtungsliste">Beobachtungsliste</a></li>
+                <li><a class="menu" href="https://www.ag-spiel.de/index.php?section=neue">Neue AGs</a></li>
+                <li><a class="menu" href="https://www.ag-spiel.de/index.php?section=dertag">Der Tag</a></li>
+                <li><a class="menu" href="https://www.ag-spiel.de/index.php?section=statistiken">Statistiken</a></li>
+                <li><a class="menu" href="https://www.ag-spiel.de/index.php?section=agsx2">AGSX</a></li>
+                <li><a class="menu" href="https://www.ag-spiel.de/index.php?section=liquidationen">Liquidationen &amp; Strafen</a></li>
+                <li><a class="menu" href="https://www.ag-spiel.de/index.php?section=zufallsprofil">Zufallsprofil</a></li>
+                <li><a class="menu" href="https://www.ag-spiel.de/index.php?section=charts">Chartvergleich</a></li>
+                <li><a class="menu" href="https://www.ag-spiel.de/index.php?section=agliste">AG-Liste</a></li>
+                <li><a class="menu" href="https://www.ag-spiel.de/index.php?section=agwall">AG-Wand</a></li>
+            </ul>
+        </li>
+
+        <li><a class="menu top" href="https://www.ag-spiel.de/index.php?section=zeitung" style="font-style:italic;">Community</a>
+           <ul>
+                <li><a class="menu" href="https://www.ag-spiel.de/index.php?section=zeitung">Die Zeitung</a></li>
+                <li><a class="menu" href="https://www.ag-spiel.de/index.php?section=forum&amp;forum=0" style="font-style:italic;">Forum(427)</a></li>
+                <li><a class="menu" href="https://www.ag-spiel.de/index.php?section=chat">Chat</a></li>
+                <li><a class="menu" href="https://www.ag-spiel.de/index.php?section=userprojekte">Userprojekte</a></li>
+                <li><a class="menu" target="_blank" href="https://www.statistik-amt.de/">Statistikamt</a></li>
+                <li><a class="menu" target="_blank" href="http://www.youtube.com/channel/UCyhMysheJi0Rx2m5TkJv4Ow/videos">Let's Play Videos #1</a></li>
+                <li><a class="menu" target="_blank" href="https://www.youtube.com/playlist?list=PL0tcRpzPFN0lpfelfGtvNkEGvgomd94WG">Let's Play Videos #2</a></li>
+            </ul>
+        </li>
+        
+        <li><a class="menu top" target="_blank" href="https://www.ag-spiel.de/wiki/">Hilfe</a>
+            <ul>
+                <li><a class="menu" href="https://www.ag-spiel.de/wiki/" target="_blank">Wiki</a></li>
+                <li><a class="menu" href="https://www.ag-spiel.de/wiki/index.php?title=Der_Anf%C3%A4ngerguide" target="_blank">Anfängerguide</a></li>
+                <li><a class="menu" href="https://www.ag-spiel.de/index.php?section=tutorial">Tutorial</a></li>
+                <li><a class="menu" href="https://www.ag-spiel.de/index.php?section=support">Support-Ticket</a></li>
+                <li><a class="menu" href="https://www.ag-spiel.de/index.php?section=tutor">Tutoren</a></li>
+                <li><a class="menu" href="https://www.ag-spiel.de/index.php?section=boersenaufsicht">Börsenaufsicht</a></li>
+                <li><a class="menu" href="https://www.ag-spiel.de/index.php?section=regeln">Regelwerk</a></li>
+            </ul>
+        </li>
+        
+            
+        <li><a class="menu top" href="https://www.ag-spiel.de/index.php?section=einstellungen">Weiteres</a>
+            <ul style="display: none;">
+                <li><a class="menu" href="https://www.ag-spiel.de/index.php?section=einstellungen">Einstellungen</a></li>
+                <li style="display:none"><a class="menu" href="https://www.ag-spiel.de/index.php?section=adventskalender">Adventskalender</a></li>
+                <li><a class="menu" href="https://www.ag-spiel.de/index.php?section=highscore">Highscores</a></li>
+                <li><a class="menu" href="https://www.ag-spiel.de/index.php?section=premium">Premium</a></li>
+                <li><a class="menu" href="https://www.ag-spiel.de/index.php?section=sponsoren">Sponsoren</a></li>
+                <li><a class="menu" href="https://www.ag-spiel.de/index.php?section=apps">Apps</a></li>
+                <li><a class="menu" href="https://www.ag-spiel.de/index.php?section=fanshop">Fanshop</a></li>
+                <li><a class="menu" href="https://www.ag-spiel.de/index.php?section=logout">Ausloggen</a></li>
+            </ul>
+        </li>
+        
+        <li><a class="menu top" style="color:#42C242;" href="https://www.ag-spiel.de/index.php?section=bonus">Bonus</a></li>
+        
+
+            
+
+        
+
+
+
+
+
+
+
+
+
+ </ul></div>       </div>
+    <div id="contentside">
+        <div id="content">
+            
+
+
+<div style="display:none" class="breakingnews">
+    <div class="breakingnews-content">
+        <div class="breakingnews-headlinebg"></div>
+        <div class="breakingnews-headline">
+            <img src="./chronik_files/breakingnews_small.png">
+        </div>
+        <div class="breakingnews-anchor">
+            <img src="./chronik_files/anchor_small.png">
+        </div>
+        <div class="breakingnews-title"></div>
+        <div class="breakingnews-text"></div>
+        <div class="breakingnews-link"></div>
+        <div class="breakingnews-close">X</div>
+    </div>
+</div><h1>Aktionärsstruktur</h1>
+<a class="arrowleft button" href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=140037">zurück zum AG-Profil</a><br>Die Aktionärsstruktur zeigt, welche AGs im Besitz der Aktien (Anteile) von dieser Aktiengesellschaft sind.
+<br>Alle Anteile &lt;1% sind unter "Sonstige AGs" zusammengefasst.<br><br style="clear:both">
+     
+  <script type="text/javascript">
+  google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Aktionär');
+        data.addColumn('number', 'Aktien');
+        data.addRows([
+          
+        ['Egel',    1190513],        ['BEST AG',    996857],        ['MLM System AG',    200909],        ['Multifar SE',    163985],        ['Baed Baenk PJSC',    128640],        ['Wolve Group',    124740],        ['Bankhaus Silberstein',    105092],        ['G&Z Trading AG',    92876],        ['Bulli 2.0',    90002],        ['Cashflow Systems AG',    61241],        ['KooL AG ',    60951],        ['Mister Holding',    59604],        ['Neue Welt AG',    55067],        ['Sonstige AGs',    613370],
+
+
+        ]);
+
+        var options = {
+          width: 450, height: 300,
+          title: 'Aktionäre #140037',
+           chartArea:{width:"90%",height:"90%"}
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+  <div style="float: right;clear:both" id="chart_div"><div style="position: relative;"><div dir="ltr" style="position: relative; width: 450px; height: 300px;"><div aria-label="Ein Diagramm" style="position: absolute; left: 0px; top: 0px; width: 100%; height: 100%;"><svg width="450" height="300" aria-label="Ein Diagramm" style="overflow: hidden;"><defs id="_ABSTRACT_RENDERER_ID_0"><filter id="_ABSTRACT_RENDERER_ID_1"><fegaussianblur in="SourceAlpha" stdDeviation="2"></fegaussianblur><feoffset dx="1" dy="1"></feoffset><fecomponenttransfer><fefunca type="linear" slope="0.1"></fefunca></fecomponenttransfer><femerge><femergenode></femergenode><femergenode in="SourceGraphic"></femergenode></femerge></filter></defs><rect x="0" y="0" width="450" height="300" stroke="none" stroke-width="0" fill="#ffffff"></rect><g><text text-anchor="start" x="23" y="11.35" font-family="Arial" font-size="11" font-weight="bold" stroke="none" stroke-width="0" fill="#000000">Aktionäre #140037</text><rect x="23" y="2" width="405" height="11" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect></g><g><rect x="291" y="15" width="137" height="245" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect><g column-id="Egel"><rect x="291" y="15" width="137" height="11" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect><g><text text-anchor="start" x="306" y="24.35" font-family="Arial" font-size="11" stroke="none" stroke-width="0" fill="#222222">Egel</text></g><circle cx="296.5" cy="20.5" r="5.5" stroke="none" stroke-width="0" fill="#3366cc"></circle></g><g column-id="BEST AG"><rect x="291" y="33" width="137" height="11" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect><g><text text-anchor="start" x="306" y="42.35" font-family="Arial" font-size="11" stroke="none" stroke-width="0" fill="#222222">BEST AG</text></g><circle cx="296.5" cy="38.5" r="5.5" stroke="none" stroke-width="0" fill="#dc3912"></circle></g><g column-id="MLM System AG"><rect x="291" y="51" width="137" height="11" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect><g><text text-anchor="start" x="306" y="60.35" font-family="Arial" font-size="11" stroke="none" stroke-width="0" fill="#222222">MLM System AG</text></g><circle cx="296.5" cy="56.5" r="5.5" stroke="none" stroke-width="0" fill="#ff9900"></circle></g><g column-id="Multifar SE"><rect x="291" y="69" width="137" height="11" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect><g><text text-anchor="start" x="306" y="78.35" font-family="Arial" font-size="11" stroke="none" stroke-width="0" fill="#222222">Multifar SE</text></g><circle cx="296.5" cy="74.5" r="5.5" stroke="none" stroke-width="0" fill="#109618"></circle></g><g column-id="Baed Baenk PJSC"><rect x="291" y="87" width="137" height="11" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect><g><text text-anchor="start" x="306" y="96.35" font-family="Arial" font-size="11" stroke="none" stroke-width="0" fill="#222222">Baed Baenk PJSC</text></g><circle cx="296.5" cy="92.5" r="5.5" stroke="none" stroke-width="0" fill="#990099"></circle></g><g column-id="Wolve Group"><rect x="291" y="105" width="137" height="11" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect><g><text text-anchor="start" x="306" y="114.35" font-family="Arial" font-size="11" stroke="none" stroke-width="0" fill="#222222">Wolve Group</text></g><circle cx="296.5" cy="110.5" r="5.5" stroke="none" stroke-width="0" fill="#0099c6"></circle></g><g column-id="Bankhaus Silberstein"><rect x="291" y="123" width="137" height="11" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect><g><text text-anchor="start" x="306" y="132.35" font-family="Arial" font-size="11" stroke="none" stroke-width="0" fill="#222222">Bankhaus Silberstein</text></g><circle cx="296.5" cy="128.5" r="5.5" stroke="none" stroke-width="0" fill="#dd4477"></circle></g><g column-id="G&amp;Z Trading AG"><rect x="291" y="141" width="137" height="11" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect><g><text text-anchor="start" x="306" y="150.35" font-family="Arial" font-size="11" stroke="none" stroke-width="0" fill="#222222">G&amp;Z Trading AG</text></g><circle cx="296.5" cy="146.5" r="5.5" stroke="none" stroke-width="0" fill="#66aa00"></circle></g><g column-id="Bulli 2.0"><rect x="291" y="159" width="137" height="11" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect><g><text text-anchor="start" x="306" y="168.35" font-family="Arial" font-size="11" stroke="none" stroke-width="0" fill="#222222">Bulli 2.0</text></g><circle cx="296.5" cy="164.5" r="5.5" stroke="none" stroke-width="0" fill="#b82e2e"></circle></g><g column-id="Cashflow Systems AG"><rect x="291" y="177" width="137" height="11" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect><g><text text-anchor="start" x="306" y="186.35" font-family="Arial" font-size="11" stroke="none" stroke-width="0" fill="#222222">Cashflow Systems AG</text></g><circle cx="296.5" cy="182.5" r="5.5" stroke="none" stroke-width="0" fill="#316395"></circle></g><g column-id="KooL AG "><rect x="291" y="195" width="137" height="11" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect><g><text text-anchor="start" x="306" y="204.35" font-family="Arial" font-size="11" stroke="none" stroke-width="0" fill="#222222">KooL AG</text></g><circle cx="296.5" cy="200.5" r="5.5" stroke="none" stroke-width="0" fill="#994499"></circle></g><g column-id="Mister Holding"><rect x="291" y="213" width="137" height="11" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect><g><text text-anchor="start" x="306" y="222.35" font-family="Arial" font-size="11" stroke="none" stroke-width="0" fill="#222222">Mister Holding</text></g><circle cx="296.5" cy="218.5" r="5.5" stroke="none" stroke-width="0" fill="#22aa99"></circle></g><g column-id="Neue Welt AG"><rect x="291" y="231" width="137" height="11" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect><g><text text-anchor="start" x="306" y="240.35" font-family="Arial" font-size="11" stroke="none" stroke-width="0" fill="#222222">Neue Welt AG</text></g><circle cx="296.5" cy="236.5" r="5.5" stroke="none" stroke-width="0" fill="#aaaa11"></circle></g><g column-id="Sonstige AGs"><rect x="291" y="249" width="137" height="11" stroke="none" stroke-width="0" fill-opacity="0" fill="#ffffff"></rect><g><text text-anchor="start" x="306" y="258.35" font-family="Arial" font-size="11" stroke="none" stroke-width="0" fill="#222222">Sonstige AGs</text></g><circle cx="296.5" cy="254.5" r="5.5" stroke="none" stroke-width="0" fill="#6633cc"></circle></g></g><g><path d="M148,150L148,25A125,125,0,0,1,266.42104364765567,190.0182011264879L148,150A0,0,0,0,0,148,150" stroke="#ffffff" stroke-width="1" fill="#3366cc"></path><text text-anchor="start" x="212.20835136325763" y="96.64936339485476" font-family="Arial" font-size="11" stroke="none" stroke-width="0" fill="#ffffff">30,2%</text></g><g><path d="M148,150L44.38336907351051,80.08152035803653A125,125,0,0,1,148,25L148,150A0,0,0,0,0,148,150" stroke="#ffffff" stroke-width="1" fill="#6633cc"></path><text text-anchor="start" x="84.9387449001905" y="64.38012001041196" font-family="Arial" font-size="11" stroke="none" stroke-width="0" fill="#ffffff">15,6%</text></g><g><path d="M148,150L38.65573805800085,89.42911276562413A125,125,0,0,1,44.38336907351051,80.08152035803653L148,150A0,0,0,0,0,148,150" stroke="#ffffff" stroke-width="1" fill="#aaaa11"></path></g><g><path d="M148,150L33.405257250629944,100.06959909828782A125,125,0,0,1,38.65573805800085,89.42911276562413L148,150A0,0,0,0,0,148,150" stroke="#ffffff" stroke-width="1" fill="#22aa99"></path></g><g><path d="M148,150L29.10424430249448,111.41503819984936A125,125,0,0,1,33.405257250629916,100.06959909828788L148,150A0,0,0,0,0,148,150" stroke="#ffffff" stroke-width="1" fill="#994499"></path></g><g><path d="M148,150L25.911055055982317,123.18042650494573A125,125,0,0,1,29.10424430249448,111.41503819984936L148,150A0,0,0,0,0,148,150" stroke="#ffffff" stroke-width="1" fill="#316395"></path></g><g><path d="M148,150L23.33154938586206,140.9017902051969A125,125,0,0,1,25.911055055982317,123.18042650494573L148,150A0,0,0,0,0,148,150" stroke="#ffffff" stroke-width="1" fill="#b82e2e"></path></g><g><path d="M148,150L23.352488536612597,159.3807188415764A125,125,0,0,1,23.33154938586206,140.9017902051969L148,150A0,0,0,0,0,148,150" stroke="#ffffff" stroke-width="1" fill="#66aa00"></path></g><g><path d="M148,150L26.658762486657338,180.02172677796136A125,125,0,0,1,23.352488536612597,159.3807188415764L148,150A0,0,0,0,0,148,150" stroke="#ffffff" stroke-width="1" fill="#dd4477"></path></g><g><path d="M148,150L34.97406461000294,203.38668306999614A125,125,0,0,1,26.658762486657366,180.02172677796148L148,150A0,0,0,0,0,148,150" stroke="#ffffff" stroke-width="1" fill="#0099c6"></path></g><g><path d="M148,150L48.204298993869685,225.27162852426562A125,125,0,0,1,34.97406461000294,203.38668306999614L148,150A0,0,0,0,0,148,150" stroke="#ffffff" stroke-width="1" fill="#990099"></path></g><g><path d="M148,150L71.03281566208075,248.49392131036694A125,125,0,0,1,48.204298993869685,225.27162852426562L148,150A0,0,0,0,0,148,150" stroke="#ffffff" stroke-width="1" fill="#109618"></path></g><g><path d="M148,150L105.93239079366651,267.7086073983683A125,125,0,0,1,71.03281566208075,248.49392131036694L148,150A0,0,0,0,0,148,150" stroke="#ffffff" stroke-width="1" fill="#ff9900"></path><text text-anchor="start" x="85.89477849230664" y="243.9478109659439" font-family="Arial" font-size="11" stroke="none" stroke-width="0" fill="#ffffff">5,1%</text></g><g><path d="M148,150L266.42104364765567,190.0182011264879A125,125,0,0,1,105.93239079366651,267.7086073983683L148,150A0,0,0,0,0,148,150" stroke="#ffffff" stroke-width="1" fill="#dc3912"></path><text text-anchor="start" x="176.81637834247616" y="245.3963852082588" font-family="Arial" font-size="11" stroke="none" stroke-width="0" fill="#ffffff">25,3%</text></g><g></g></svg><div aria-label="Eine tabellarische Darstellung der Daten im Diagramm" style="position: absolute; left: -10000px; top: auto; width: 1px; height: 1px; overflow: hidden;"><table><thead><tr><th>Aktionär</th><th>Aktien</th></tr></thead><tbody><tr><td>Egel</td><td>1.190.513</td></tr><tr><td>BEST AG</td><td>996.857</td></tr><tr><td>MLM System AG</td><td>200.909</td></tr><tr><td>Multifar SE</td><td>163.985</td></tr><tr><td>Baed Baenk PJSC</td><td>128.640</td></tr><tr><td>Wolve Group</td><td>124.740</td></tr><tr><td>Bankhaus Silberstein</td><td>105.092</td></tr><tr><td>G&amp;Z Trading AG</td><td>92.876</td></tr><tr><td>Bulli 2.0</td><td>90.002</td></tr><tr><td>Cashflow Systems AG</td><td>61.241</td></tr><tr><td>KooL AG </td><td>60.951</td></tr><tr><td>Mister Holding</td><td>59.604</td></tr><tr><td>Neue Welt AG</td><td>55.067</td></tr><tr><td>Sonstige AGs</td><td>613.370</td></tr></tbody></table></div></div></div><div aria-hidden="true" style="display: none; position: absolute; top: 310px; left: 460px; white-space: nowrap; font-family: Arial; font-size: 11px; font-weight: bold;">1.190.513 (30,2%)</div><div></div></div></div>
+<div style="float:left"><table class="normalborder"><tbody><tr><th>Aktionär</th><th>Stueckzahl</th><th>Änderung*</th></tr><tr class=""><td>1. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=135665"> 135665  (Egel)</a></td><td align="right">1.190.513</td><td align="right"><span>0</span>%</td></tr><tr class="odd"><td>2. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=140818"> 140818  (BEST AG)</a></td><td align="right">996.857</td><td align="right"><span>0</span>%</td></tr><tr class=""><td>3. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=100352"> 100352  (MLM System AG)</a></td><td align="right">200.909</td><td align="right"><span>0</span>%</td></tr><tr class="odd"><td>4. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=142975"> 142975  (Multifar SE)</a></td><td align="right">163.985</td><td align="right"><span>0</span>%</td></tr><tr class=""><td>5. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=116334"> 116334  (Baed Baenk PJSC)</a></td><td align="right">128.640</td><td align="right"><span>0</span>%</td></tr><tr class="odd"><td>6. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=101725"> 101725  (Wolve Group)</a></td><td align="right">124.740</td><td align="right"><span>0</span>%</td></tr><tr class=""><td>7. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=174374"> 174374  (Bankhaus Silberstein)</a></td><td align="right">105.092</td><td align="right"><span>0</span>%</td></tr><tr class="odd"><td>8. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=137318"> 137318  (G&amp;Z Trading AG)</a></td><td align="right">92.876</td><td align="right"><span>0</span>%</td></tr><tr class=""><td>9. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=117567"> 117567  (Bulli 2.0)</a></td><td align="right">90.002</td><td align="right"><span>0</span>%</td></tr><tr class="odd"><td>10. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=141770"> 141770  (Cashflow Systems AG)</a></td><td align="right">61.241</td><td align="right"><span>0</span>%</td></tr><tr class=""><td>11. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=109941"> 109941  (KooL AG )</a></td><td align="right">60.951</td><td align="right"><span>0</span>%</td></tr><tr class="odd"><td>12. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=134913"> 134913  (Mister Holding)</a></td><td align="right">59.604</td><td align="right"><span>0</span>%</td></tr><tr class=""><td>13. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=107099"> 107099  (Neue Welt AG)</a></td><td align="right">55.067</td><td align="right"><span>0</span>%</td></tr><tr class="odd"><td>14. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=169516"> 169516  (Spekulatius fuer Alle)</a></td><td align="right">38.788</td><td align="right"><span>0</span>%</td></tr><tr class=""><td>15. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=107846"> 107846  (Edenvale Holding AG)</a></td><td align="right">37.322</td><td align="right"><span>0</span>%</td></tr><tr class="odd"><td>16. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=102851"> 102851  (Blue Moon Systems)</a></td><td align="right">36.000</td><td align="right"><span>0</span>%</td></tr><tr class=""><td>17. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=154338"> 154338  (Hinz Oelwerke )</a></td><td align="right">35.254</td><td align="right"><span>0</span>%</td></tr><tr class="odd"><td>18. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=120756"> 120756  (maggam ag)</a></td><td align="right">32.297</td><td align="right"><span class="red">-5</span>%</td></tr><tr class=""><td>19. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=169400"> 169400  (tigerteddy)</a></td><td align="right">32.280</td><td align="right"><span>0</span>%</td></tr><tr class="odd"><td>20. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=172326"> 172326  (M.Thiel Capital)</a></td><td align="right">27.805</td><td align="right"><span>0</span>%</td></tr><tr class=""><td>21. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=113842"> 113842  (Golbinsk)</a></td><td align="right">27.046</td><td align="right"><span>0</span>%</td></tr><tr class="odd"><td>22. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=164382"> 164382  (Jelena AG)</a></td><td align="right">24.618</td><td align="right"><span>0</span>%</td></tr><tr class=""><td>23. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=107454"> 107454  (Garfield Investments)</a></td><td align="right">23.859</td><td align="right"><span>0</span>%</td></tr><tr class="odd"><td>24. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=170086"> 170086  (BigAG)</a></td><td align="right">23.634</td><td align="right"><span>0</span>%</td></tr><tr class=""><td>25. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=128146"> 128146  (Global Rocket AG)</a></td><td align="right">17.107</td><td align="right"><span>0</span>%</td></tr><tr class="odd"><td>26. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=100001"> 100001  (Rady)</a></td><td align="right">13.849</td><td align="right"><span>0</span>%</td></tr><tr class=""><td>27. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=147895"> 147895  (S  O  A  R  S  E    )</a></td><td align="right">13.026</td><td align="right"><span>0</span>%</td></tr><tr class="odd"><td>28. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=113199"> 113199  (North Trade AG)</a></td><td align="right">12.000</td><td align="right"><span>0</span>%</td></tr><tr class=""><td>29. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=102216"> 102216  (CAMILLE HOLDING AG)</a></td><td align="right">11.204</td><td align="right"><span>0</span>%</td></tr><tr class="odd"><td>30. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=101579"> 101579  (TRUYO Equity Corp.)</a></td><td align="right">10.591</td><td align="right"><span>0</span>%</td></tr><tr class=""><td>31. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=160253"> 160253  (bigbob Inc.)</a></td><td align="right">10.434</td><td align="right"><span>0</span>%</td></tr><tr class="odd"><td>32. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=164026"> 164026  (Wire AG)</a></td><td align="right">10.234</td><td align="right"><span>0</span>%</td></tr><tr class=""><td>33. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=133801"> 133801  (Mark der DDR)</a></td><td align="right">9.670</td><td align="right"><span>0</span>%</td></tr><tr class="odd"><td>34. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=114597"> 114597  (Bierkastenstapel AG)</a></td><td align="right">8.976</td><td align="right"><span>0</span>%</td></tr><tr class=""><td>35. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=135471"> 135471  (RAeTOeRN AG)</a></td><td align="right">8.919</td><td align="right"><span>0</span>%</td></tr><tr class="odd"><td>36. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=167618"> 167618  (KlausWeber Arge)</a></td><td align="right">8.829</td><td align="right"><span>0</span>%</td></tr><tr class=""><td>37. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=155453"> 155453  (Capone Family Bank)</a></td><td align="right">8.787</td><td align="right"><span>0</span>%</td></tr><tr class="odd"><td>38. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=167391"> 167391  (Kruemelmonster)</a></td><td align="right">8.608</td><td align="right"><span>0</span>%</td></tr><tr class=""><td>39. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=153099"> 153099  (Rottal Timber AG)</a></td><td align="right">8.500</td><td align="right"><span>0</span>%</td></tr><tr class="odd"><td>40. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=106505"> 106505  (Argo)</a></td><td align="right">7.532</td><td align="right"><span>0</span>%</td></tr><tr class=""><td>41. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=132531"> 132531  (Ormurin langi AG)</a></td><td align="right">5.816</td><td align="right"><span>0</span>%</td></tr><tr class="odd"><td>42. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=122928"> 122928  (Graham &amp; Morgan PLC )</a></td><td align="right">5.562</td><td align="right"><span>0</span>%</td></tr><tr class=""><td>43. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=102085"> 102085  (Loewenstein Invest AG)</a></td><td align="right">5.500</td><td align="right"><span>0</span>%</td></tr><tr class="odd"><td>44. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=152680"> 152680  (NewCorp AG)</a></td><td align="right">5.088</td><td align="right"><span>0</span>%</td></tr><tr class=""><td>45. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=129251"> 129251  (Romulus AG)</a></td><td align="right">4.966</td><td align="right"><span>0</span>%</td></tr><tr class="odd"><td>46. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=154514"> 154514  (Handel AG)</a></td><td align="right">4.755</td><td align="right"><span>0</span>%</td></tr><tr class=""><td>47. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=138865"> 138865  (Neffi Corp.)</a></td><td align="right">4.715</td><td align="right"><span>0</span>%</td></tr><tr class="odd"><td>48. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=158931"> 158931  (XnX Corp.)</a></td><td align="right">4.000</td><td align="right"><span>0</span>%</td></tr><tr class=""><td>49. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=147187"> 147187  (Pippis BierstrumpfAG)</a></td><td align="right">4.000</td><td align="right"><span>0</span>%</td></tr><tr class="odd"><td>50. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=134243"> 134243  (F-Industries AG)</a></td><td align="right">3.671</td><td align="right"><span>0</span>%</td></tr><tr class=""><td>51. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=161049"> 161049  (Welsing)</a></td><td align="right">3.619</td><td align="right"><span>0</span>%</td></tr><tr class="odd"><td>52. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=151640"> 151640  (Pille Palle AG)</a></td><td align="right">3.481</td><td align="right"><span>0</span>%</td></tr><tr class=""><td>53. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=175343"> 175343  (Xinotrix SE)</a></td><td align="right">3.305</td><td align="right"><span>0</span>%</td></tr><tr class="odd"><td>54. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=146430"> 146430  (Magicpool)</a></td><td align="right">3.099</td><td align="right"><span>0</span>%</td></tr><tr class=""><td>55. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=126044"> 126044  (Truemmer AG)</a></td><td align="right">2.678</td><td align="right"><span>0</span>%</td></tr><tr class="odd"><td>56. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=127952"> 127952  (Bratwurst AG)</a></td><td align="right">2.500</td><td align="right"><span>0</span>%</td></tr><tr class=""><td>57. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=169870"> 169870  (PfalzWein)</a></td><td align="right">2.051</td><td align="right"><span>0</span>%</td></tr><tr class="odd"><td>58. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=134539"> 134539  (Witwen &amp; Waisen Fond)</a></td><td align="right">2.000</td><td align="right"><span>0</span>%</td></tr><tr class=""><td>59. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=156741"> 156741  (FINA GROW SE)</a></td><td align="right">2.000</td><td align="right"><span>0</span>%</td></tr><tr class="odd"><td>60. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=174846"> 174846  (Rumbullion)</a></td><td align="right">1.938</td><td align="right"><span>0</span>%</td></tr><tr class=""><td>61. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=137516"> 137516  (Minotaurus Invest AG)</a></td><td align="right">1.875</td><td align="right"><span>0</span>%</td></tr><tr class="odd"><td>62. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=169245"> 169245  (Easy Invest)</a></td><td align="right">1.800</td><td align="right"><img src="./chronik_files/new.gif"></td></tr><tr class=""><td>63. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=127391"> 127391  (Wurstdoeschen AG)</a></td><td align="right">1.699</td><td align="right"><span>0</span>%</td></tr><tr class="odd"><td>64. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=127114"> 127114  (S.V.A.)</a></td><td align="right">1.519</td><td align="right"><span>0</span>%</td></tr><tr class=""><td>65. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=175040"> 175040  (European Fracking SE)</a></td><td align="right">1.242</td><td align="right"><span>0</span>%</td></tr><tr class="odd"><td>66. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=164944"> 164944  (Miri &amp; Co AG)</a></td><td align="right">1.100</td><td align="right"><span>0</span>%</td></tr><tr class=""><td>67. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=164021"> 164021  (Solarpark AG)</a></td><td align="right">1.050</td><td align="right"><span>0</span>%</td></tr><tr class="odd"><td>68. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=148812"> 148812  (Night Industries AG )</a></td><td align="right">1.000</td><td align="right"><span>0</span>%</td></tr><tr class=""><td>69. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=108609"> 108609  (AktienZOO AG)</a></td><td align="right">1.000</td><td align="right"><span>0</span>%</td></tr><tr class="odd"><td>70. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=174028"> 174028  (Frazilla)</a></td><td align="right">1.000</td><td align="right"><span>0</span>%</td></tr><tr class=""><td>71. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=164066"> 164066  (MehrWert Invest)</a></td><td align="right">1.000</td><td align="right"><span>0</span>%</td></tr><tr class="odd"><td>72. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=143362"> 143362  (Zoo)</a></td><td align="right">1.000</td><td align="right"><span>0</span>%</td></tr><tr class=""><td>73. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=172747"> 172747  (Clipper)</a></td><td align="right">822</td><td align="right"><span>0</span>%</td></tr><tr class="odd"><td>74. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=171747"> 171747  (Methanhyd  Corp )</a></td><td align="right">764</td><td align="right"><span>0</span>%</td></tr><tr class=""><td>75. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=109394"> 109394  (MCBeckerAG)</a></td><td align="right">700</td><td align="right"><span>0</span>%</td></tr><tr class="odd"><td>76. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=167144"> 167144  (Derivate AG)</a></td><td align="right">698</td><td align="right"><span>0</span>%</td></tr><tr class=""><td>77. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=164913"> 164913  (Germania Stahl AG)</a></td><td align="right">689</td><td align="right"><span>0</span>%</td></tr><tr class="odd"><td>78. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=175253"> 175253  (MONETA SE)</a></td><td align="right">681</td><td align="right"><span>0</span>%</td></tr><tr class=""><td>79. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=104835"> 104835  (CARBON SKYLIFTER )</a></td><td align="right">669</td><td align="right"><span>0</span>%</td></tr><tr class="odd"><td>80. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=175785"> 175785  (Kuschel &amp; Keks AG)</a></td><td align="right">653</td><td align="right"><span>0</span>%</td></tr><tr class=""><td>81. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=174942"> 174942  (Svenson &amp; Sohn)</a></td><td align="right">629</td><td align="right"><span>0</span>%</td></tr><tr class="odd"><td>82. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=174860"> 174860  (New Empire)</a></td><td align="right">610</td><td align="right"><span>0</span>%</td></tr><tr class=""><td>83. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=136405"> 136405  (Schuschi)</a></td><td align="right">601</td><td align="right"><span>0</span>%</td></tr><tr class="odd"><td>84. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=174867"> 174867  (Watsons Biotec AG)</a></td><td align="right">522</td><td align="right"><span>0</span>%</td></tr><tr class=""><td>85. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=171516"> 171516  (Schwanef-Ants)</a></td><td align="right">503</td><td align="right"><span>0</span>%</td></tr><tr class="odd"><td>86. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=155315"> 155315  (Spinnaker Sails)</a></td><td align="right">500</td><td align="right"><span>0</span>%</td></tr><tr class=""><td>87. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=162517"> 162517  (butterfly)</a></td><td align="right">500</td><td align="right"><span>0</span>%</td></tr><tr class="odd"><td>88. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=157080"> 157080  (Okesy AG)</a></td><td align="right">500</td><td align="right"><span>0</span>%</td></tr><tr class=""><td>89. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=149172"> 149172  (raumZEIT)</a></td><td align="right">497</td><td align="right"><span>0</span>%</td></tr><tr class="odd"><td>90. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=153909"> 153909  (Bademeister AG)</a></td><td align="right">424</td><td align="right"><span>0</span>%</td></tr><tr class=""><td>91. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=172065"> 172065  (Monopol AG)</a></td><td align="right">400</td><td align="right"><span>0</span>%</td></tr><tr class="odd"><td>92. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=172464"> 172464  (RegensburgRegionalAG)</a></td><td align="right">369</td><td align="right"><span>0</span>%</td></tr><tr class=""><td>93. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=151995"> 151995  (Langohr Holdings)</a></td><td align="right">357</td><td align="right"><span>0</span>%</td></tr><tr class="odd"><td>94. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=169741"> 169741  (LongLife AG)</a></td><td align="right">286</td><td align="right"><span>0</span>%</td></tr><tr class=""><td>95. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=128807"> 128807  (Musashi AG )</a></td><td align="right">279</td><td align="right"><span>0</span>%</td></tr><tr class="odd"><td>96. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=145496"> 145496  (W-Lan Kabel AG)</a></td><td align="right">277</td><td align="right"><span>0</span>%</td></tr><tr class=""><td>97. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=147289"> 147289  (ChaosFamily)</a></td><td align="right">254</td><td align="right"><span>0</span>%</td></tr><tr class="odd"><td>98. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=175156"> 175156  (Underground Invest )</a></td><td align="right">223</td><td align="right"><span>0</span>%</td></tr><tr class=""><td>99. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=175890"> 175890  (Kammerjaeger)</a></td><td align="right">202</td><td align="right"><span>0</span>%</td></tr><tr class="odd"><td>100. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=175185"> 175185  (Bluemchen )</a></td><td align="right">190</td><td align="right"><span>0</span>%</td></tr><tr class=""><td>101. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=171439"> 171439  (Schaltkreis AG)</a></td><td align="right">171</td><td align="right"><span>0</span>%</td></tr><tr class="odd"><td>102. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=161877"> 161877  (Futtersyndikat)</a></td><td align="right">156</td><td align="right"><span>0</span>%</td></tr><tr class=""><td>103. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=173349"> 173349  (Austrian Broker AG)</a></td><td align="right">150</td><td align="right"><span>0</span>%</td></tr><tr class="odd"><td>104. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=172732"> 172732  (Krokoschinski Corp.)</a></td><td align="right">149</td><td align="right"><span>0</span>%</td></tr><tr class=""><td>105. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=168477"> 168477  (MWB)</a></td><td align="right">149</td><td align="right"><span>0</span>%</td></tr><tr class="odd"><td>106. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=175905"> 175905  (Evalon AG)</a></td><td align="right">149</td><td align="right"><span>0</span>%</td></tr><tr class=""><td>107. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=173867"> 173867  (Suriel AG)</a></td><td align="right">144</td><td align="right"><span>0</span>%</td></tr><tr class="odd"><td>108. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=172888"> 172888  (Road-Trip-Advisor)</a></td><td align="right">128</td><td align="right"><span>0</span>%</td></tr><tr class=""><td>109. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=172055"> 172055  (ATLAS)</a></td><td align="right">102</td><td align="right"><span>0</span>%</td></tr><tr class="odd"><td>110. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=112972"> 112972  (Stavanger-Foun)</a></td><td align="right">90</td><td align="right"><span>0</span>%</td></tr><tr class=""><td>111. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=132970"> 132970  (Hughmorrisdrake AG)</a></td><td align="right">84</td><td align="right"><span>0</span>%</td></tr><tr class="odd"><td>112. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=173159"> 173159  (Ace-Trans)</a></td><td align="right">65</td><td align="right"><span>0</span>%</td></tr><tr class=""><td>113. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=174650"> 174650  (Pathor AG)</a></td><td align="right">50</td><td align="right"><span>0</span>%</td></tr><tr class="odd"><td>114. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=164505"> 164505  (Muhaha)</a></td><td align="right">50</td><td align="right"><span>0</span>%</td></tr><tr class=""><td>115. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=175362"> 175362  (ESC)</a></td><td align="right">50</td><td align="right"><span>0</span>%</td></tr><tr class="odd"><td>116. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=104628"> 104628  (BWEM GROUP)</a></td><td align="right">50</td><td align="right"><span>0</span>%</td></tr><tr class=""><td>117. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=175493"> 175493  (Korr Holding AG)</a></td><td align="right">50</td><td align="right"><span>0</span>%</td></tr><tr class="odd"><td>118. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=174184"> 174184  (Stans Gebrauchtkaehne)</a></td><td align="right">44</td><td align="right"><span>0</span>%</td></tr><tr class=""><td>119. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=175721"> 175721  (Shared Future AG)</a></td><td align="right">41</td><td align="right"><span>0</span>%</td></tr><tr class="odd"><td>120. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=153253"> 153253  (CuK Hasenfarm AG)</a></td><td align="right">35</td><td align="right"><span>0</span>%</td></tr><tr class=""><td>121. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=166220"> 166220  (E.T.C. Corp.)</a></td><td align="right">34</td><td align="right"><span>0</span>%</td></tr><tr class="odd"><td>122. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=162526"> 162526  (Tom Investment)</a></td><td align="right">34</td><td align="right"><span>0</span>%</td></tr><tr class=""><td>123. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=117524"> 117524  (Komondor)</a></td><td align="right">33</td><td align="right"><span>0</span>%</td></tr><tr class="odd"><td>124. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=173911"> 173911  (Das Imperium)</a></td><td align="right">33</td><td align="right"><span>0</span>%</td></tr><tr class=""><td>125. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=176052"> 176052  (AKA-Ing AG)</a></td><td align="right">32</td><td align="right"><span>0</span>%</td></tr><tr class="odd"><td>126. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=175303"> 175303  (Mathe AG)</a></td><td align="right">32</td><td align="right"><span>0</span>%</td></tr><tr class=""><td>127. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=165177"> 165177  (Lord Venture Capital)</a></td><td align="right">28</td><td align="right"><span>0</span>%</td></tr><tr class="odd"><td>128. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=174466"> 174466  (Flashcow)</a></td><td align="right">26</td><td align="right"><span>0</span>%</td></tr><tr class=""><td>129. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=174402"> 174402  (Deutsche Eisenbahn)</a></td><td align="right">26</td><td align="right"><span>0</span>%</td></tr><tr class="odd"><td>130. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=147806"> 147806  (Baphomet AG)</a></td><td align="right">25</td><td align="right"><span>0</span>%</td></tr><tr class=""><td>131. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=175622"> 175622  (relstel Holding AG)</a></td><td align="right">24</td><td align="right"><span>0</span>%</td></tr><tr class="odd"><td>132. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=171552"> 171552  (onescam ag)</a></td><td align="right">22</td><td align="right"><span>0</span>%</td></tr><tr class=""><td>133. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=170410"> 170410  (Flensburger AG)</a></td><td align="right">21</td><td align="right"><span>0</span>%</td></tr><tr class="odd"><td>134. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=175381"> 175381  (Michail Kutusow AG)</a></td><td align="right">17</td><td align="right"><span>0</span>%</td></tr><tr class=""><td>135. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=175406"> 175406  (Royal Bank PE)</a></td><td align="right">16</td><td align="right"><span>0</span>%</td></tr><tr class="odd"><td>136. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=175652"> 175652  (Faultierland)</a></td><td align="right">15</td><td align="right"><span>0</span>%</td></tr><tr class=""><td>137. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=174895"> 174895  (Raffke International)</a></td><td align="right">13</td><td align="right"><span>0</span>%</td></tr><tr class="odd"><td>138. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=176025"> 176025  (Qmount Inc.)</a></td><td align="right">8</td><td align="right"><span>0</span>%</td></tr><tr class=""><td>139. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=153748"> 153748  (Seuchen AG )</a></td><td align="right">6</td><td align="right"><span>0</span>%</td></tr><tr class="odd"><td>140. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=161421"> 161421  (Vogtland Kapital AG)</a></td><td align="right">4</td><td align="right"><span>0</span>%</td></tr><tr class=""><td>141. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=175843"> 175843  (Lostbank AG)</a></td><td align="right">3</td><td align="right"><span>0</span>%</td></tr><tr class="odd"><td>142. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=176230"> 176230  (Transportunion)</a></td><td align="right">3</td><td align="right"><img src="./chronik_files/new.gif"></td></tr><tr class=""><td>143. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=175583"> 175583  (Koenigsburg)</a></td><td align="right">2</td><td align="right"><span>0</span>%</td></tr><tr class="odd"><td>144. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=173166"> 173166  (In-Farkt)</a></td><td align="right">1</td><td align="right"><span>0</span>%</td></tr><tr class=""><td>145. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=173589"> 173589  (AllesMacher AG)</a></td><td align="right">1</td><td align="right"><span>0</span>%</td></tr><tr class="odd"><td>146. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=125010"> 125010  (Felicitas Brokerage)</a></td><td align="right">1</td><td align="right"><span>0</span>%</td></tr><tr class=""><td>147. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=172693"> 172693  (Alexej)</a></td><td align="right">1</td><td align="right"><span>0</span>%</td></tr><tr class="odd"><td>148. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=118973"> 118973  (Phil Corporation AG )</a></td><td align="right">1</td><td align="right"><span>0</span>%</td></tr><tr class=""><td>149. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=175457"> 175457  (Lejon AB)</a></td><td align="right">1</td><td align="right"><span>0</span>%</td></tr><tr class="odd"><td>150. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=173399"> 173399  (Solaris AG)</a></td><td align="right">1</td><td align="right"><span>0</span>%</td></tr><tr class=""><td>151. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=170919"> 170919  (Herrhausen Bank AG)</a></td><td align="right">1</td><td align="right"><span>0</span>%</td></tr><tr class="odd"><td>152. <a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=155885"> 155885  (AR Capital Group)</a></td><td align="right">1</td><td align="right"><span>0</span>%</td></tr>
+   <tr><td colspan="3">Insgesamt gibt es 152 Aktionäre</td></tr>
+   </tbody></table>*Stückzahl im vergleich zu Mitternacht</div>        </div>
+        <div id="sidebar">
+                 
+                <style type="text/css">
+                        #content{
+                            width: 920px;
+                        }
+                    </style>
+            
+<table class="menu2">
+
+<tbody><tr><td class="menu2" colspan="2">
+<div id="holder" style="width:auto;"> 
+<img src="./chronik_files/zoom.png" style="vertical-align:middle; margin-bottom: 4px; margin-right: 4px;"><input onkeydown="sub(event)" type="text" id="keyword" size="26" placeholder="Suche (WKN/AG/Spieler)">
+</div>
+<div id="ajax_response" style="left: 30px; width: 210px;"></div>
+</td></tr><tr><td class="menu2">Serverzeit</td><td class="menu2" style="text-align:right"><div id="uhr">19:02:16</div></td></tr><tr><td class="menu2">Bargeld</td><td class="menu2" style="text-align:right">1,0&nbsp;Mio.&nbsp;€</td></tr>
+<tr>
+        <th class="menu2" colspan="2">Order-Liveticker</th>
+    </tr>
+<tr><td class="menu2" colspan="2"><div id="liveTickerContainer"><div class="liveTicker"><div class="tickerAG"><a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=176260">Hi-Tech Soundsystems</a></div><div class="tickerAction"><span class="red">SELL</span></div><br><div class="tickerLimit"><a href="https://www.ag-spiel.de/index.php?section=orders&amp;wkn=176260">128,00€</a></div><div class="ticketSum"> - 530 Tsd. €</div><div class="tickerDif"><span class="green">-0.39%</span></div></div></div></td></tr>
+
+
+    <tr>
+        <th class="menu2" colspan="2">Favoriten</th>
+    </tr>
+    
+            <tr>
+        <td align="left" class="menu2"><a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=115878">PTM Monstersystems</a></td><td align="right" class="menu2"><span class="red">-3,45</span>%</td>
+            </tr>
+        
+    <tr>
+        <th class="menu2" colspan="2">Gewinner &amp; Verlierer FP</th>
+    </tr>
+    
+        <tr>
+    <td align="left" class="menu2"><a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=175843">Lostbank AG</a></td><td align="right" class="menu2"><span class="green">85,91</span>%</td>
+        </tr>
+    
+        <tr>
+    <td align="left" class="menu2"><a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=174750">CK Investment</a></td><td align="right" class="menu2"><span class="green">24,60</span>%</td>
+        </tr>
+    
+        <tr>
+    <td align="left" class="menu2"><a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=175672">FinTech Global </a></td><td align="right" class="menu2"><span class="green">19,90</span>%</td>
+        </tr>
+    
+        <tr>
+    <td align="left" class="menu2"><a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=176002">Mountain Sweat</a></td><td align="right" class="menu2"><span class="red">-50,00</span>%</td>
+        </tr>
+    
+        <tr>
+    <td align="left" class="menu2"><a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=147895">S  O  A  R  S  E    </a></td><td align="right" class="menu2"><span class="red">-16,88</span>%</td>
+        </tr>
+    
+        <tr>
+    <td align="left" class="menu2"><a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=175395">DMR AG</a></td><td align="right" class="menu2"><span class="red">-14,19</span>%</td>
+        </tr>
+    
+    <tr>
+        <th class="menu2" colspan="2">neue Aktien</th>
+    </tr>
+    
+        <tr>
+    <td align="left" class="menu2"><a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=176263">Krach vom Fach GmbH</a></td><td align="right" class="menu2"><span class="green">144,00</span>%</td>
+        </tr>
+    
+        <tr>
+    <td align="left" class="menu2"><a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=176262">Golfland</a></td><td align="right" class="menu2"><span class="green">27,57</span>%</td>
+        </tr>
+    
+        <tr>
+    <td align="left" class="menu2"><a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=176261">PenPump</a></td><td align="right" class="menu2"><span class="green">116,00</span>%</td>
+        </tr>
+    
+        <tr>
+    <td align="left" class="menu2"><a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=176260">Hi-Tech Soundsystems</a></td><td align="right" class="menu2"><span class="green">542,50</span>%</td>
+        </tr>
+    
+        <tr>
+    <td align="left" class="menu2"><a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=176259">Dedetrans</a></td><td align="right" class="menu2"><span class="green">48,50</span>%</td>
+        </tr>
+    
+    <tr>
+        <th class="menu2" colspan="2">Top Tagesvolumen</th>
+    </tr>
+    
+        <tr>
+    <td align="left" class="menu2"><a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=124897">Trustcomp. AG</a></td><td align="right" class="menu2">184 Mio. €</td>
+        </tr>
+    
+        <tr>
+    <td align="left" class="menu2"><a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=175785">Kuschel &amp; Keks AG</a></td><td align="right" class="menu2">182 Mio. €</td>
+        </tr>
+    
+        <tr>
+    <td align="left" class="menu2"><a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=151304">Aquila Invest KGaA</a></td><td align="right" class="menu2">122 Mio. €</td>
+        </tr>
+    
+        <tr>
+    <td align="left" class="menu2"><a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=109941">KooL AG </a></td><td align="right" class="menu2">101 Mio. €</td>
+        </tr>
+    
+        <tr>
+    <td align="left" class="menu2"><a href="https://www.ag-spiel.de/index.php?section=profil&amp;aktie=128146">Global Rocket AG</a></td><td align="right" class="menu2">78 Mio. €</td>
+        </tr>
+    <tr>
+        <th class="menu2" colspan="2">AGSX &amp; Anleihen</th>
+    </tr>
+    <tr>
+    <td align="left" class="menu2">Punktestand</td>
+    <td align="right" class="menu2">23.299</td>
+    </tr>
+    <tr>
+    <td align="left" class="menu2">Änderung</td>
+    <td align="right" class="menu2"><img style="vertical-align:bottom" src="./chronik_files/arrow_up.png"> 58</td>
+    </tr>
+    <tr>
+    <td align="left" class="menu2">Put / Call</td>
+    <td align="right" class="menu2"><span class="red">1.4</span> / <span class="green">1.44</span></td>
+    </tr>
+    <tr>
+    <td align="left" class="menu2">Anleihezins</td>
+    <td align="right" class="menu2">1.55%</td>
+    </tr>
+    <tr>
+        <th class="menu2" colspan="2">Statistiken</th>
+    </tr>
+    <tr>
+    <td align="left" class="menu2">AGs am Markt</td>
+    <td align="right" class="menu2">749</td>
+    </tr>
+    <tr>
+    <td align="left" class="menu2">24 Std. neue AGs</td>
+    <td align="right" class="menu2">4</td>
+    </tr>
+    <tr>
+    <td align="left" class="menu2">24 Std. online</td>
+    <td align="right" class="menu2">579</td>
+    </tr>
+    <tr>
+    <td align="left" class="menu2">10 Min. online</td>
+    <td align="right" class="menu2">98</td>
+    </tr>
+    
+    
+</tbody></table>   
+
+        </div>
+    </div>
+    <div id="footer">
+        
+        <br><a class="menu" href="https://www.ag-spiel.de/index.php?section=regeln">Regelwerk</a>  | <a class="menu" href="https://www.ag-spiel.de/index.php?section=agb">AGB</a>  | <a class="menu" href="https://www.ag-spiel.de/index.php?section=datenschutz">Datenschutz</a> | <a class="menu" href="https://www.ag-spiel.de/index.php?section=impressum">Impressum</a>
+            
+        
+        
+    </div>
+</div>
+    
+
+
+
+
+
+
+
+
+
+
+</body></html>
