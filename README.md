@@ -1,6 +1,9 @@
 # AG-Spiel JavaScript API-Wrapper
 
-![developtesting](https://github.com/James-Smith-AGS/agspiel-js-api/workflows/developtesting/badge.svg?branch=develop&event=push)
+![version](https://img.shields.io/npm/v/agspiel-js-api)
+![licence](https://img.shields.io/npm/l/agspiel-js-api)
+![master](https://github.com/James-Smith-AGS/agspiel-js-api/workflows/mastertesting/badge.svg?branch=master&event=push)
+![develop](https://github.com/James-Smith-AGS/agspiel-js-api/workflows/developtesting/badge.svg?branch=develop&event=push)
 
 __Bitte beachtet bei der Nutzung folgendes:__
 `§5 Das Benutzen und von Programmen/Bots, die einen Spielvorteil ermöglichen, Funktionen bieten die sich mit Premiumfeatures überschneiden oder hohe Serverbelastungen erzeugen (z.B. Parsen der Seite mit mehr als einem Aufruf pro Sekunde), ist verboten. Die Bewerbung/Verbreitung von Browserplugins oder anderer clientseitiger Software zur Erweiterung/Veränderung der Webseite ist verboten.`
@@ -30,14 +33,14 @@ __Außerdem: Der volle Funktionsumfang dieser API kann nur mit einem Premiumacco
 * [NodeJS](https://nodejs.org/en/download/) installieren
 * Projekt-Ordner erstellen
 * Im Terminal des gerade erstellten Ordners NPM initialisieren `npm init -y`
-* Dieses Paket installieren `npm install --save agspiel-js-api`
+* Dieses Paket installieren `npm install agspiel-js-api`
 * .js-Datei anlegen und das Paket importieren `const agspiel = require('agspiel')`
 * Mit dem eigenen `ag-spiel`-Cookie authentifizieren und die API nutzen
 
 ```js
-const agspiel = require('agspiel');
+const agspiel = require("agspiel-js-api");
 
-const api = new ags.Api("<Dein-AG-Spiel-Cookie>");
+const api = new agspiel.Api("<Dein-AG-Spiel-Cookie>");
 
 api.ag(140037).then((ag) => {
     console.log(ag);
@@ -48,6 +51,32 @@ api.ag(140037).then((ag) => {
 
 Die Cookies könnt ihr, solange ihr beim AG-Spiel eingeloggt seid, über euren Browser erfahren (Bei Firefox STRG+Umschalt+Q und eine beliebige Anfrage anklicken. Danach seht ihr rechts die Cookies).
 Indem ihr die "Klasse" initialisiert `new ags.Api(agspiel-cookie)` (siehe Beispiel oben) könnt ihr euch also "einloggen" und die API im vollen Umfang nutzen.
+
+Alternativ könnt ihr auch folgende Funktion nutzen und den aktuellen Wert des Cookies automatisiert auslesen:
+```js
+const agspiel = require("agspiel-js-api");
+
+agspiel.get_cookie("<deine E-Mail>", "<dein Passwort>").then((cookie) => {
+    console.log(cookie);
+});
+
+// Output:
+[
+  {
+    name: 'ag-spiel',
+    value: '<cookieString>',
+    domain: 'www.ag-spiel.de',
+    path: '/',
+    expires: 1598894886.473004,
+    size: 48,
+    httpOnly: true,
+    secure: true,
+    session: false
+  }
+]
+```
+__Diese Funktion wird jedoch nicht auf allen Geräten unterstützt!__
+
 
 ## Beispiele
 
