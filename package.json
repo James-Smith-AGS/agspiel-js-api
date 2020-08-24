@@ -1,14 +1,18 @@
 {
   "name": "agspiel-js-api",
   "version": "0.0.1",
-  "description": "",
+  "description": "An API for the browsergame www.ag-spiel.de",
   "main": "src",
   "scripts": {
     "test": "nyc mocha",
     "generateDocs": "jsdoc README.md -c jsdoc.json"
   },
-  "author": "James Smith @ag-spiel",
+  "author": "James-Smith@ag-spiel",
   "license": "MIT",
+  "bugs": "https://github.com/James-Smith-AGS/agspiel-js-api/issues",
+  "homepage": "https://james-smith-ags.github.io/agspiel-js-api/",
+  "keywords": ["npm", "node", "javascript", "ag-spiel"],
+  "repository": ["type": "git", "url": "https://github.com/James-Smith-AGS/agspiel-js-api.git"],
   "nyc": {
     "reporter": [
       "lcov",
