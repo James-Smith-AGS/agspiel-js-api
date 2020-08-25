@@ -6,7 +6,7 @@ testpush
 ![publish](https://github.com/James-Smith-AGS/agspiel-js-api/workflows/publish/badge.svg?branch=master&event=push)
 ![master](https://github.com/James-Smith-AGS/agspiel-js-api/workflows/master/badge.svg?branch=master&event=push)
 ![develop](https://github.com/James-Smith-AGS/agspiel-js-api/workflows/develop/badge.svg?branch=develop&event=push)
-[![Coverage Status Dev](https://coveralls.io/repos/github/James-Smith-AGS/agspiel-js-api/badge.svg?branch=develop)](https://coveralls.io/github/James-Smith-AGS/agspiel-js-api?branch=develop)
+[![Coverage Status](https://coveralls.io/repos/github/James-Smith-AGS/agspiel-js-api/badge.svg?branch=develop)](https://coveralls.io/github/James-Smith-AGS/agspiel-js-api?branch=develop)
 ![GitHub last commit](https://img.shields.io/github/last-commit/James-Smith-AGS/agspiel-js-api)
 ![GitHub issues](https://img.shields.io/github/issues/James-Smith-AGS/agspiel-js-api)
 ![Website](https://img.shields.io/website?down_color=red&down_message=offline&label=Docu&up_color=green&up_message=online&url=https%3A%2F%2Fjames-smith-ags.github.io%2Fagspiel-js-api%2F)
