@@ -3,6 +3,7 @@
 ![GitHub package.json version](https://img.shields.io/github/package-json/v/James-Smith-AGS/agspiel-js-api)
 ![NodeJS Versions](https://img.shields.io/badge/nodejs-v10.22.0%20%3D<%20v14.8.0-brightgreen)
 ![licence](https://img.shields.io/npm/l/agspiel-js-api)
+![publish](https://github.com/James-Smith-AGS/agspiel-js-api/workflows/publish/badge.svg?branch=master&event=push)
 ![master](https://github.com/James-Smith-AGS/agspiel-js-api/workflows/master/badge.svg?branch=master&event=push)
 ![develop](https://github.com/James-Smith-AGS/agspiel-js-api/workflows/develop/badge.svg?branch=develop&event=push)
 [![Coverage Status Dev](https://coveralls.io/repos/github/James-Smith-AGS/agspiel-js-api/badge.svg?branch=develop)](https://coveralls.io/github/James-Smith-AGS/agspiel-js-api?branch=develop)
