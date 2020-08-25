@@ -1,5 +1,4 @@
 # AG-Spiel JavaScript API-Wrapper
-testpush
 ![GitHub package.json version](https://img.shields.io/github/package-json/v/James-Smith-AGS/agspiel-js-api)
 ![NodeJS Versions](https://img.shields.io/badge/nodejs-v10.22.0%20%3D<%20v14.8.0-brightgreen)
 ![licence](https://img.shields.io/npm/l/agspiel-js-api)
