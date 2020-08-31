@@ -3,7 +3,7 @@ const {Index} = require("../models");
 function indizesListe(api) {
     const indexIdListe = []
     for (const indexId in api.data.indizes) {
-        if (api.data.indizes.hasOwnProperty(indexId)) {
+        if (Object.prototype.hasOwnProperty.call(api.data.indizes, indexId)) {
             const element = api.data.indizes[indexId];
             indexIdListe.push(element.id)
         }
