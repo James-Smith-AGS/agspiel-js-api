@@ -4,6 +4,7 @@
   "description": "An API for the browsergame www.ag-spiel.de",
   "main": "src",
   "scripts": {
+    "lint": "eslint ./",
     "test": "nyc mocha",
     "generateDocs": "jsdoc README.md -c jsdoc.json"
   },
@@ -17,7 +18,10 @@
     "javascript",
     "ag-spiel"
   ],
-  "engines": {"node": "<=v14.8.0 >=10.22.0", "npm": "6.14.7"},
+  "engines": {
+    "node": "<=v14.8.0 >=10.22.0",
+    "npm": "6.14.7"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/James-Smith-AGS/agspiel-js-api.git"
