@@ -2,7 +2,13 @@ const puppeteer = require('puppeteer');
 
 async function get_session(email, password) {
     try {
-        const browser = await puppeteer.launch({headless: true});
+        const browser = await puppeteer.launch({
+            headless: true,
+            args: [
+                "--no-sandbox",
+                "--disable-setuid-sandbox"
+            ]
+        });
         const page = await browser.newPage();
 
         await page.goto("https://www.ag-spiel.de/index.php?section=login");
