@@ -1,5 +1,3 @@
-const Ceo = require("./ceo");
-
 /** Objekt das eine AG beschreibt mit deren CEO, Aktien, Anleihen, Krediten und Zertifikaten*/
 class Ag {
     /**
@@ -104,6 +102,7 @@ class Ag {
             this.fp_30d = fp_30d;
             this.fp_60d = fp_60d;
             this.fp_90d = fp_90d;
+            this.index = index;
     }
 
     set wkn(wkn) {

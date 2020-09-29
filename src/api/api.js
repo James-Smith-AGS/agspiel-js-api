@@ -1,11 +1,5 @@
 const axios = require("axios").default;
 const parse = require("../parser");
-const Chronik = require("../models/chronik");
-const Aktionaer = require("../models/aktionaer");
-const Bilanz = require("../models/bilanz");
-const Kontoauszug = require("../models/kontoauszug");
-const Index = require("../models/agindex");
-const AgOfList = require("../models/agOfList");
 
 /** 
  * Objekt zur Authentifizierung im AG-Spiel 

@@ -8,9 +8,7 @@ function bilanzen(source) {
   let bilanzen = [];
 
   tables.each((i, e) => {
-    let date = e.children[0].data;
     let wertTable = e.next.next;
-    let kontoTable = wertTable.next.next;
 
     let wertbody = wertTable.children[1];
 

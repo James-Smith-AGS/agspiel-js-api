@@ -1,9 +1,10 @@
 {
   "name": "agspiel-js-api",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "An API for the browsergame www.ag-spiel.de",
   "main": "src",
   "scripts": {
+    "lint": "eslint ./",
     "test": "nyc mocha",
     "generateDocs": "jsdoc README.md -c jsdoc.json"
   },
@@ -17,7 +18,10 @@
     "javascript",
     "ag-spiel"
   ],
-  "engines": {"node": "<=v14.8.0 >=10.22.0", "npm": "6.14.7"},
+  "engines": {
+    "node": "<=v14.8.0 >=10.22.0",
+    "npm": "6.14.7"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/James-Smith-AGS/agspiel-js-api.git"
@@ -30,13 +34,13 @@
   },
   "devDependencies": {
     "docdash": "^1.2.0",
-    "eslint": "^7.7.0",
-    "mocha": "^8.1.1",
+    "eslint": "^7.10.0",
+    "mocha": "^8.1.3",
     "nyc": "^15.1.0"
   },
   "dependencies": {
     "axios": "^0.20.0",
     "cheerio": "^1.0.0-rc.3",
-    "puppeteer": "^5.2.1"
+    "puppeteer": "^5.3.1"
   }
 }
