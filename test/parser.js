@@ -46,7 +46,7 @@ describe("Testing Website-Parser", () => {
         let result = parse.bilanzen(data);
         assert.strictEqual(Array.isArray(result), true);
         assert.strictEqual(result[0] instanceof Object, true);
-        assert.deepStrictEqual(result[result.length - 1].datum, new Date("2015-09-30T22:00:00.000Z"))
+        assert.deepStrictEqual(result[result.length - 1].datum, new Date(Date.UTC("2015-09-30T22:00:00.000Z")))
         assert.strictEqual(result[result.length - 1].aktienzahl, 1000000);
         assert.strictEqual(result[result.length - 1].kurs, 3.4);
         assert.strictEqual(result[result.length - 1].aktiendepot, 193844);
