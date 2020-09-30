@@ -1,4 +1,5 @@
 # AG-Spiel JavaScript API-Wrapper
+
 ![GitHub package.json version](https://img.shields.io/github/package-json/v/James-Smith-AGS/agspiel-js-api)
 ![NodeJS Versions](https://img.shields.io/badge/nodejs-v10.22.0%20%3D<%20v14.8.0-brightgreen)
 ![licence](https://img.shields.io/npm/l/agspiel-js-api)
@@ -16,8 +17,8 @@ __Außerdem: Der volle Funktionsumfang dieser API kann nur mit einem Premiumacco
 
 ## Inhaltsverzeichnis
 
-* [Features](#funktionsumfang)
-* [Installation](#installationsanleitung)
+* [Funktionsumfang](#funktionsumfang)
+* [Installationsanleitung](#installationsanleitung)
 * [Cookie auslesen](#cookie-auslesen)
 * [Beispiele](#beispiele)
 
@@ -39,7 +40,7 @@ __Außerdem: Der volle Funktionsumfang dieser API kann nur mit einem Premiumacco
 * Projekt-Ordner erstellen
 * Im Terminal des gerade erstellten Ordners NPM initialisieren `npm init -y`
 * Dieses Paket installieren `npm install agspiel-js-api`
-* .js-Datei anlegen und das Paket importieren `const agspiel = require('agspiel')`
+* .js-Datei anlegen und das Paket importieren `const agspiel = require('agspiel-js-api')`
 * Mit dem eigenen `ag-spiel`-Cookie authentifizieren und die API nutzen
 
 ```js
@@ -58,6 +59,7 @@ Die Cookies könnt ihr, solange ihr beim AG-Spiel eingeloggt seid, über euren B
 Indem ihr die "Klasse" initialisiert `new ags.Api(agspiel-cookie)` (siehe Beispiel oben) könnt ihr euch also "einloggen" und die API im vollen Umfang nutzen.
 
 Alternativ könnt ihr auch folgende Funktion nutzen und den aktuellen Wert des Cookies automatisiert auslesen:
+
 ```js
 const agspiel = require("agspiel-js-api");
 
@@ -80,8 +82,8 @@ agspiel.get_cookie("<deine E-Mail>", "<dein Passwort>").then((cookie) => {
   }
 ]
 ```
-__Diese Funktion wird jedoch nicht auf allen Geräten unterstützt!__
 
+__Diese Funktion wird jedoch nicht auf allen Geräten unterstützt!__
 
 ## Beispiele
 
