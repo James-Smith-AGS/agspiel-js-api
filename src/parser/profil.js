@@ -66,6 +66,7 @@ function profil([page, api]) {
     ag.dividende = parseFloat(weitere_infos[7].children[0].data.replace("%", "").replace(".","").replace(",","."));
     ag.max_zertis = parseFloat(weitere_infos[9].children[0].data.replace("%", "").replace(".","").replace(",","."));
     ag.tagesvolumen = 0;
+    ag.schutz = weitere_infos[17].children[0].data.trim() === "ja" ? true : false;
     ag.tages_hoch = parseFloat(weitere_infos[19].children[0].data.replace(" €","").replace(".","").replace(",","."));
     ag.tages_tief = parseFloat(weitere_infos[21].children[0].data.replace(" €","").replace(".","").replace(",","."));
     ag.kurs_14d = perf(2, 5);
