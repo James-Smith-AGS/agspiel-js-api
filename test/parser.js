@@ -138,6 +138,7 @@ describe("Testing Combined-Parser", () => {
         assert.strictEqual(result.aktien[0] instanceof Object, true);
         assert.strictEqual(result.aktien[0].wkn, 173636);
         assert.strictEqual(result.aktien[0].stueckzahl, 27);
+        assert.strictEqual(result.aktien[0].kurs, 1174.15);
         assert.strictEqual(Array.isArray(result.anleihen), true);
         assert.strictEqual(result.anleihen[0] instanceof Object, true);
         assert.strictEqual(result.anleihen[0].betrag, 100000000);
