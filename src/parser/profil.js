@@ -31,7 +31,7 @@ function profil([page, api]) {
     ag.orders = [];
     // Add Aktien-Obj to AG-Obj
     for (const i of api.data.ags[String(ag.wkn)].aktien) {
-        ag.aktien.push(new Aktie(i.wkn, i.stueckzahl));  
+        ag.aktien.push(new Aktie(i.wkn, i.stueckzahl, api.data.ags[String(i.wkn)].kurs));  
     }
     // Add Anleihen-Obj to AG-Obj
     for (const i of api.data.ags[String(ag.wkn)].anleihen) {
