@@ -7,6 +7,7 @@ class Ag {
      * @param  {number} aktienzahl=null - Anzahl der Aktien der AG
      * @param  {boolean} in_liquidation=null - Liquidationsstatus (true/false)
      * @param  {boolean} schutz=null - Übernahmeschutz durch System (true/false)
+     * @param  {number} bw_aktie=null - Aktueller Buchwert pro Aktie
      * @param  {number} kurs=null - Aktueller Kurs/Boersenwert
      * @param  {number} brief=null - Aktueller Briefkurs
      * @param  {number} geld=null - Aktueller Geldkurs
@@ -50,7 +51,7 @@ class Ag {
      * @param  {number} fp_90d=null - Relative Veraenderung zum Fairen Preis von vor 90 Tagen
      * @param  {Index} index=null - Object mit Daten ueber den Index der AG
      */
-    constructor(wkn=null, name=null, gruendung=null, aktienzahl=null, in_liquidation=null, schutz=null, kurs=null, brief=null, 
+    constructor(wkn=null, name=null, gruendung=null, aktienzahl=null, in_liquidation=null, schutz=null, bw_aktie=null, kurs=null, brief=null, 
         geld=null, brief_stueckzahl=null, geld_stueckzahl=null, sw_aktie=null, bbw_aktie=null, fp_aktie=null,
         kgv=null, tagesvolumen=null, depotwert=null, bargeld=null, highscore=null, highscore_groesse=null,
         highscore_wachstum=null, highscore_newcomer=null, agsx_punkte=null, in_agsx=null, handelsaktivitaet=null,
@@ -63,6 +64,7 @@ class Ag {
             this.aktienzahl = aktienzahl;
             this.in_liquidation = in_liquidation;
             this.schutz = schutz;
+            this.bw_aktie = bw_aktie;
             this.kurs = kurs;
             this.brief = brief;
             this.geld = geld;
@@ -170,12 +172,25 @@ class Ag {
     set schutz(schutz) {
         this._schutz = schutz;
     }
+
     /**
      * @public
      * @property {boolean} schutz - Zeigt ob die AG durch das System vor Uebernahmen geschützt ist
      */
     get schutz() {
         return this._schutz;
+    }
+
+    set bw_aktie(bw_aktie) {
+        this._bw_aktie = bw_aktie;
+    }
+
+    /**
+     * @public
+     * @property  {number} bw_aktie - Zeigt aktuellen Buchwert pro Aktie
+     */
+    get bw_aktie() {
+        return this._bw_aktie;
     }
 
     set kurs(kurs) {
