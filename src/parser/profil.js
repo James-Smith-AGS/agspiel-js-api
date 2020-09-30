@@ -58,7 +58,7 @@ function profil([page, api]) {
         if (p.type === 'tag')
           return parseFloat(p.children[0].data.replace(".","").replace(",","."));
     }
-    ag.bw_aktie = parseFloat($("bwproaktie").text().trim().replace("BW/Aktie(?) ", "").replace(" €","").replace(".","").replace(",","."))
+    ag.bw_aktie = parseFloat($("#bwproaktie").text().trim().replace("BW/Aktie(?) ", "").replace(" €","").replace(".","").replace(",","."));
     ag.sw_aktie = parseFloat($("#sw").text().trim().replace("SW/Aktie(?) ", "").replace(" €","").replace(".","").replace(",","."));
     ag.bbw_aktie = parseFloat($("#bbw").text().trim().replace("BBW(?)", "").replace(" €","").replace(".","").replace(",","."));
     ag.fp_aktie = parseFloat($("#fp").text().trim().replace("FP/Aktie(?) ", "").replace(" €","").replace(".","").replace(",","."));
