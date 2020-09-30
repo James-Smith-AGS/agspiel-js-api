@@ -31,7 +31,7 @@ function profil([page, api]) {
     ag.orders = [];
     // Add Aktien-Obj to AG-Obj
     for (const i of api.data.ags[String(ag.wkn)].aktien) {
-        ag.aktien.push(new Aktie(i.wkn, i.stueckzahl));  
+        ag.aktien.push(new Aktie(i.wkn, i.stueckzahl, api.data.ags[String(i.wkn)].kurs));  
     }
     // Add Anleihen-Obj to AG-Obj
     for (const i of api.data.ags[String(ag.wkn)].anleihen) {
@@ -58,6 +58,7 @@ function profil([page, api]) {
         if (p.type === 'tag')
           return parseFloat(p.children[0].data.replace(".","").replace(",","."));
     }
+    ag.bw_aktie = parseFloat($("#bwproaktie").text().trim().replace("BW/Aktie(?) ", "").replace(" €","").replace(".","").replace(",","."));
     ag.sw_aktie = parseFloat($("#sw").text().trim().replace("SW/Aktie(?) ", "").replace(" €","").replace(".","").replace(",","."));
     ag.bbw_aktie = parseFloat($("#bbw").text().trim().replace("BBW(?)", "").replace(" €","").replace(".","").replace(",","."));
     ag.fp_aktie = parseFloat($("#fp").text().trim().replace("FP/Aktie(?) ", "").replace(" €","").replace(".","").replace(",","."));
@@ -65,6 +66,7 @@ function profil([page, api]) {
     ag.dividende = parseFloat(weitere_infos[7].children[0].data.replace("%", "").replace(".","").replace(",","."));
     ag.max_zertis = parseFloat(weitere_infos[9].children[0].data.replace("%", "").replace(".","").replace(",","."));
     ag.tagesvolumen = 0;
+    ag.schutz = weitere_infos[17].children[0].data.trim() === "ja" ? true : false;
     ag.tages_hoch = parseFloat(weitere_infos[19].children[0].data.replace(" €","").replace(".","").replace(",","."));
     ag.tages_tief = parseFloat(weitere_infos[21].children[0].data.replace(" €","").replace(".","").replace(",","."));
     ag.kurs_14d = perf(2, 5);
