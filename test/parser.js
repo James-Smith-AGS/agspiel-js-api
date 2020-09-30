@@ -46,6 +46,7 @@ describe("Testing Website-Parser", () => {
         let result = parse.bilanzen(data);
         assert.strictEqual(Array.isArray(result), true);
         assert.strictEqual(result[0] instanceof Object, true);
+        assert.deepStrictEqual(result[result.length - 1].datum, new Date("2015-09-30T22:00:00.000Z"))
         assert.strictEqual(result[result.length - 1].aktienzahl, 1000000);
         assert.strictEqual(result[result.length - 1].kurs, 3.4);
         assert.strictEqual(result[result.length - 1].aktiendepot, 193844);
@@ -105,6 +106,8 @@ describe("Testing Combined-Parser", () => {
         assert.strictEqual(result.gruendung - result.gruendung, 0);
         assert.strictEqual(result.aktienzahl, 3943847);
         assert.strictEqual(result.in_liquidation, false);
+        assert.strictEqual(result.schutz, false);
+        assert.strictEqual(result.bw_aktie, 2167.43);
         assert.strictEqual(result.kurs, 1494.01);
         assert.strictEqual(result.brief, 1494.01);
         assert.strictEqual(result.geld, 1454.26);
@@ -141,6 +144,7 @@ describe("Testing Combined-Parser", () => {
         assert.strictEqual(result.anleihen[0].zins, 0.2);
         assert.strictEqual(result.anleihen[0].auszahlung_datum - result.anleihen[0].auszahlung_datum, 0);
         assert.strictEqual(result.anleihen[0].laufzeit, 5);
+        assert.strictEqual(Array.isArray(result.kredite), true);
         assert.strictEqual(Array.isArray(result.zertifikate), true);
         assert.strictEqual(Array.isArray(result.orders), true);
         assert.strictEqual(result.orders[0] instanceof Object, true);
