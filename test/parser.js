@@ -105,6 +105,8 @@ describe("Testing Combined-Parser", () => {
         assert.strictEqual(result.gruendung - result.gruendung, 0);
         assert.strictEqual(result.aktienzahl, 3943847);
         assert.strictEqual(result.in_liquidation, false);
+        assert.strictEqual(result.schutz, false);
+        assert.strictEqual(result.bw_aktie, 2167.43);
         assert.strictEqual(result.kurs, 1494.01);
         assert.strictEqual(result.brief, 1494.01);
         assert.strictEqual(result.geld, 1454.26);
@@ -135,12 +137,14 @@ describe("Testing Combined-Parser", () => {
         assert.strictEqual(result.aktien[0] instanceof Object, true);
         assert.strictEqual(result.aktien[0].wkn, 173636);
         assert.strictEqual(result.aktien[0].stueckzahl, 27);
+        assert.strictEqual(result.aktien[0].kurs, 1174.15);
         assert.strictEqual(Array.isArray(result.anleihen), true);
         assert.strictEqual(result.anleihen[0] instanceof Object, true);
         assert.strictEqual(result.anleihen[0].betrag, 100000000);
         assert.strictEqual(result.anleihen[0].zins, 0.2);
         assert.strictEqual(result.anleihen[0].auszahlung_datum - result.anleihen[0].auszahlung_datum, 0);
         assert.strictEqual(result.anleihen[0].laufzeit, 5);
+        assert.strictEqual(Array.isArray(result.kredite), true);
         assert.strictEqual(Array.isArray(result.zertifikate), true);
         assert.strictEqual(Array.isArray(result.orders), true);
         assert.strictEqual(result.orders[0] instanceof Object, true);
