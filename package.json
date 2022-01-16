@@ -1,6 +1,6 @@
 {
   "name": "agspiel-js-api",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "An API for the browsergame www.ag-spiel.de",
   "main": "src",
   "scripts": {
